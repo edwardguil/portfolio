@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="css/style.css">
-        <script>
-            function toggleMenu() {
-                document.getElementById('nav-links').classList.toggle('active');
-            }
-        </script>
-    </head>
-    <body>
-        <nav>
-            <div class="nav-fixed">
-                <div class="burger" onclick="toggleMenu()">
-                    &#9776;
-                </div>
-                <div id="nav-links" class="nav-links"> > 
-                    <a class="nav-link" href="index.html">home</a>
-                    <a class="nav-link" href="projects.html">projects</a>
-                    <a class="nav-link" href="#">about</a>
-                    <a class="nav-link" href="#">contact</a>
-                </div>
-
-                <div id="nav-nightmode">
-                    <img src="images/Circle.png" />
-                </div>
-
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-fixed">
+            <!-- Hamburger menu and hidden checkbox for toggling nav-links -->
+            <input type="checkbox" id="nav-toggle" hidden>
+            <label for="nav-toggle" class="burger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </label>
+            <!-- Navigation links -->
+            <div id="nav-links" class="nav-links"> 
+                <a class="nav-link" href="index.html">home</a>
+                <a class="nav-link" href="projects.html">projects</a>
+                <a class="nav-link" href="#">about</a>
+                <a class="nav-link" href="#">contact</a>
             </div>
-
+            <!-- Night mode button -->
+            <div id="nav-nightmode">
+                <div class="ball"></div>
             </div>
-        </nav>
-        <header class="vh100 flex v-center h-center">
-            <div id="logo-slogan">
-                <picture>
-                    <img src="images/edward-header.svg" />
-                </picture>
-                <h2>machine learning engineer</h2>
-            </div>
-            <div id="arrow-down">
-                <img src="images/arrow-down.png"/>
-            </div>
-        </header>
-        <main>
-            <section class="vh100 flex v-center h-center" id="home-projects">
-                <!-- Add your projects content here -->
-            </section>
-            <section class="vh100 flex v-center h-center" id="home-about">
-                <!-- Add your about content here -->
-            </section>
-            <section class="vh100 flex v-center h-center" id="home-contact">
-                <!-- Add your contact content here -->
-            </section>
-        </main>
-    </body>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="vh100 flex v-center h-center">
+        <div id="logo-slogan">
+            <picture>
+                <img src="images/edward-header.svg" />
+            </picture>
+            <h2>machine learning engineer</h2>
+        </div>
+        <div id="arrow-down">
+            <img src="images/arrow-down.png"/>
+        </div>
+    </header>
+    <!-- Main content -->
+    <main>
+        <section class="vh100 flex v-center h-center" id="home-projects">
+            <!-- Add your projects content here -->
+        </section>
+        <section class="vh100 flex v-center h-center" id="home-about">
+            <!-- Add your about content here -->
+        </section>
+        <section class="vh100 flex v-center h-center" id="home-contact">
+            <!-- Add your contact content here -->
+        </section>
+    </main>
+</body>
 </html>

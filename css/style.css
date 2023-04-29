@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: aglet-mono, mono, monospace;
     background-size: 70px 60px;
@@ -7,6 +8,7 @@ body {
     margin: 0;
 }
 
+/* Navbar styles */
 nav {
     display: flex;
     align-items: center;
@@ -16,16 +18,24 @@ nav {
     width: 100%;
     background-color: white;
     z-index: 999;
-    border: 0px 0px 2px 0px;
     border-style: solid;
 }
 
 nav .nav-fixed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 1200px;
     padding-left: 50px;
     padding-right: 50px;
     margin: 0 auto;
+    box-sizing: border-box; /* Add this line */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -38,11 +48,75 @@ nav a {
     padding-right: 20px;
 }
 
-
 .nav-link:hover {
-    color: purple
+    color: purple;
 }
 
+
+/* Hamburger menu styles */
+.burger {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
+
+.burger-line {
+    position: absolute;
+    border-radius: 4px;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    transition: all 0.3s;
+}
+
+.burger-line:nth-child(1) {
+    top: 0;
+}
+
+.burger-line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger-line:nth-child(3) {
+    bottom: 0;
+}
+
+#nav-toggle:checked ~ .burger .burger-line:nth-child(1) {
+    transform: translateY(14px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .burger .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#nav-toggle:checked ~ .burger .burger-line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* Night mode button */ 
+
+.ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    border: 2px solid black;
+}
+
+.slider {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  
+
+/* Header styles */
 header {
     position: relative;
 }
@@ -65,6 +139,7 @@ header #logo-slogan h2 {
     transform: translateX(-50%);
 }
 
+/* Utility classes */
 .vh100 {
     min-height: 100vh;
 }
@@ -81,24 +156,39 @@ header #logo-slogan h2 {
     display: flex;
 }
 
-.burger {
-    display: none;
-    cursor: pointer;
-    font-size: 40px;
-}
+
+
 
 /* Mobile Design */
-@media (max-width: 768px) {
+@media (max-width: 804px) {
+
+
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        position: absolute;
+
+        padding-left: 50px;
+        top: 100%;
+        left: -3px;
+        width: 100%;
+        background-color: white;
+        z-index: 1000;
+        box-sizing: border-box;
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height .3s ease-in-out;
+        border-left: 3px solid black;
+        border-bottom: 3px solid black;
     }
 
     .burger {
-        display: block;
+        display: flex;
+        align-items: center;
     }
 
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
+    #nav-toggle:checked ~ .nav-links {
+        max-height: 191px;
     }
 }
