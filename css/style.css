@@ -1,0 +1,104 @@
+body {
+    font-family: aglet-mono, mono, monospace;
+    background-size: 70px 60px;
+    background-image:
+        linear-gradient(to left, rgba(128, 128, 128, 0.75) 2px, transparent 2px),
+        linear-gradient(to top, rgba(128, 128, 128, 0.75) 2px, transparent 2px);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    padding: 5px 0px 5px 0px;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+    border: 0px 0px 2px 0px;
+    border-style: solid;
+}
+
+nav .nav-fixed {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0 auto;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.nav-link:link {
+    color: cyan;
+    padding-right: 20px;
+}
+
+
+.nav-link:hover {
+    color: purple
+}
+
+header {
+    position: relative;
+}
+
+header #logo-slogan {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+header #logo-slogan h2 {
+    text-align: right;
+}
+
+#arrow-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.vh100 {
+    min-height: 100vh;
+}
+
+.v-center {
+    align-items: center;
+}
+
+.h-center {
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+/* Mobile Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
