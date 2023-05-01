@@ -1,12 +1,55 @@
 /* General styles */
+@font-face {
+    font-family: "lift-mono";
+    src: url(fonts/lift_mono_regular.woff) format('woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "lift-mono";
+    src: url(fonts/lift_mono_bold.woff) format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "lift-mono";
+    src: url(fonts/lift_mono_light.woff) format('woff');
+    font-weight: lighter;
+}
+
+:root {
+    --primary-orange: #FD7547;
+    --secondary-orange: #FEAD91;
+    --primary-black: black;
+    --primary-white: white;
+    --primary-grey: #808080bf;
+    --primary-purple: #420D00;
+
+    --text-highlight: rgba(255, 255, 0, 0.639);
+    --header-slogan: var(--primary-black);
+
+
+}
+
 body {
-    font-family: aglet-mono, mono, monospace;
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    font-family: "lift-mono", monospace;
     background-size: 70px 60px;
     background-image:
-        linear-gradient(to left, rgba(128, 128, 128, 0.75) 2px, transparent 2px),
-        linear-gradient(to top, rgba(128, 128, 128, 0.75) 2px, transparent 2px);
+        linear-gradient(to left, var(--primary-grey) 2px, transparent 2px),
+        linear-gradient(to top, var(--primary-grey) 2px, transparent 2px);
     margin: 0;
 }
+
+h1, a {
+    font-weight: bold;
+}
+
+p {
+    font-weight: normal;
+}
+
 
 /* Navbar styles */
 nav {
@@ -16,19 +59,21 @@ nav {
     padding: 5px 0px 5px 0px;
     top: 0;
     width: 100%;
-    background-color: white;
+    background-color: var(--primary-white);
     z-index: 999;
     border-style: solid;
+    transition: top 0.8s ease-in-out;
 }
 
-nav .nav-fixed {
+.nav-fixed {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding-left: 50px;
     padding-right: 50px;
+    padding-left: 50px;
+    min-height: 65px;
     margin: 0 auto;
     box-sizing: border-box; /* Add this line */
 }
@@ -41,17 +86,45 @@ nav .nav-fixed {
 nav a {
     text-decoration: none;
     font-size: 40px;
+    color: var(--primary-black);
 }
 
 .nav-link:link {
-    color: cyan;
     padding-right: 20px;
 }
 
-.nav-link:hover {
-    color: purple;
+.nav-link.active {
+    color: var(--primary-orange);
 }
 
+.underline {
+    width: 0%;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav-link:hover + .underline {
+    width: 80%;
+}
+
+.section-header .underline {
+    width: 80%;
+}
+
+.underline :first-child {
+    position: relative;
+    top: -6px;
+    width: 100%;
+    background-color: var(--primary-orange);
+    height: 5px;
+}
+
+.underline :last-child {
+    position: relative;
+    width: 102%;
+    top: -6px;
+    background-color: #420D00;
+    height: 5px;
+}
 
 /* Hamburger menu styles */
 .burger {
@@ -67,7 +140,7 @@ nav a {
     border-radius: 4px;
     width: 100%;
     height: 5px;
-    background-color: black;
+    background-color: var(--primary-orange);
     transition: all 0.3s;
 }
 
@@ -99,24 +172,56 @@ nav a {
 
 /* Night mode button */ 
 
-.ball {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: red;
-    border: 2px solid black;
+.slider {
+    display: flex;
+    align-items: center;
+    width: 90px;
+    height: 30px;
+    background-color: var(--secondary-orange);
+    border-radius: 40px;
+    position: relative;
+    border: 2px solid var(--primary-black);
 }
 
-.slider {
-    position: relative;
-    width: 100px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 10px;
-  }
-  
+.slider p {
+    padding-left: 50px;
+    transition: all 0.3s ease-in-out;
+}
 
-/* Header styles */
+.slider.nightmode p {
+    padding-left: 5px;
+}
+  
+.ball {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-orange);
+    border: 2px solid var(--primary-black);
+}
+
+.slider .ball {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    cursor: pointer;
+    left: -5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.ball img {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+.ball img.hidden {
+    opacity: 0;
+}
+
+/* Home Header styles */
 header {
     position: relative;
 }
@@ -130,6 +235,7 @@ header #logo-slogan {
 
 header #logo-slogan h2 {
     text-align: right;
+    color: var(--header-slogan);
 }
 
 #arrow-down {
@@ -139,9 +245,299 @@ header #logo-slogan h2 {
     transform: translateX(-50%);
 }
 
+#arrow-down svg {
+    width: 75px; 
+    height: 75px;
+    color: var(--primary-black);
+    transition: all 2s ease-in-out;
+}
+
+#arrow-down.grow svg {
+    width: 60px; 
+    height: 60px;
+} 
+
+/* Home Projects */
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 90%;
+    max-width: 1200px;  
+}
+
+.section-header {
+    width: 100%;
+}
+
+.section-header .underline {
+    width: 100%
+}
+
+#home-projects .underline div {
+    top: 0px;
+}
+
+.section-header h2 {
+    display: inline-block;
+    font-size: 50px;
+    color: var(--primary-black);
+}
+
+.section-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+    max-width: 1200px;
+}
+
+#home-projects .section-body {
+    flex-direction: column;
+}
+
+.windows-stacked {
+    width: 100%;
+    height: 100%;
+}
+
+.windows-stacked .mac-window {
+    position: relative;
+    opacity: 1;
+}
+
+.windows-stacked :nth-child(1) {
+    z-index: 2;
+    left: 10%
+}
+
+.windows-stacked :nth-child(2) {
+    z-index: 3;
+    top: -74%;
+    left: 15%
+
+}
+
+.windows-stacked :nth-child(3) {
+    z-index: 4;
+    top: -148%;
+    left: 20%
+}
+
+.mac-window {
+    min-width: 250px;
+    width: 70%;
+    height: 80%;
+    border: 2px solid var(--primary-black);
+    border-radius: 10px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mac-header {
+    display: flex;
+    background-color: #05DBF2;
+    border-bottom: 2px solid var(--primary-black);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    justify-content: start;
+    align-items: center;
+    height: 30px
+}
+  
+.mac-header .ball {
+    margin-left: 7px;
+}
+
+.mac-header .ball .cross {
+    background-color: #FF6633;
+}
+
+.mac-header :nth-child(2) {
+    background-color: #FEE550
+}
+
+.mac-header :nth-child(3) {
+    background-color: #05F240;
+}
+
+
+.mac-header p {
+    margin-left: 10px;
+    font-weight: bold;
+}
+  
+.mac-body {
+    height: 100%;
+    background-color: white;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+  
+/* Home About */
+#home-about .section-header {
+    text-align: center;
+}
+
+#home-about .section-body {
+    justify-content: space-around;
+}
+
+
+#home-about .mac-window {
+    width: 50%;
+    min-width: 280px;
+    max-height: 300px;
+}
+
+#home-about .mac-body > div {
+    padding-left: 20px;
+}
+
+.text-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-image: linear-gradient(to right, var(--text-highlight), var(--text-highlight));
+    transition: all .7s ease-in-out;
+    z-index: -1;
+}
+
+.text-button:hover {
+    cursor: pointer;
+}
+  
+
+.text-button:hover::after  {
+    width: 100%;
+}
+  
+
+#home-projects .text-button {
+    flex-direction: row;
+}
+
+#home-projects .text-button svg {
+    width: 40px;
+    height: 40px;
+}
+
+.enter-button {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-size: 23px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    color: var(--primary-white);
+    background-color: #262626;
+    border: 3px solid #4F4C4D;
+    border-radius: 4px;
+}
+
+/* Home Contact */
+#home-contact .section-header {
+    text-align: left;
+}
+
+#home-contact .section-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#home-contact .mac-window {
+    width: 50%;
+    max-width: 400px;
+    min-width: 280px;
+    max-height: 220px;
+}
+
+#home-contact .mac-body {
+    padding-left: 10px;
+}
+
+.section-body h2 {
+    font-size: 40px;
+    margin: 10px;
+}
+
+/* About Page */
+#about {
+    min-height: 80vh;
+    margin-top: 81px;
+}
+
+#about .windows-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#about-window {
+    position: absolute;
+    top: 0;
+    min-height: fit-content;
+    height: fit-content;
+}
+
+#about-window .mac-body {
+    min-height: fit-content;
+    padding: 10px;
+}
+
+#terminal-window {
+    top: 5%;
+    left: 0;
+    position: absolute;
+    max-height: 70%;
+    max-width: 400px;
+    min-width: 280px;
+    max-height: 220px;
+}
+
+#about-quote {
+    border: 2px solid var(--primary-black);
+    text-align: left;
+
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#about-window .mac-body :first-child p {
+    margin-left: 10px;
+}
+
+
+#terminal-window .mac-body {
+    padding-left: 10px;
+}
+
+
 /* Utility classes */
 .vh100 {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .v-center {
@@ -156,31 +552,54 @@ header #logo-slogan h2 {
     display: flex;
 }
 
+.hidden {
+    opacity: 0;
+}
 
+.plain-link {
+    text-decoration: none;
+    color: inherit;
+}
 
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-/* Mobile Design */
 @media (max-width: 804px) {
 
+    .nav-fixed {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 
     .nav-links {
         display: flex;
         flex-direction: column;
         align-items: start;
         position: absolute;
-
-        padding-left: 50px;
+        padding-left: 30px;
         top: 100%;
         left: -3px;
         width: 100%;
-        background-color: white;
+        background-color: var(--primary-white);
         z-index: 1000;
         box-sizing: border-box;
         max-height: 0; 
         overflow: hidden;
         transition: max-height .3s ease-in-out;
-        border-left: 3px solid black;
-        border-bottom: 3px solid black;
+        border-left: 3px solid var(--primary-black);
+        border-bottom: 3px solid var(--primary-black);
+    }
+
+    #about-window .row {
+        flex-direction: column;
+    }
+
+    #about-window .mac-body :nth-child(2) {
+        flex-direction: column-reverse;
     }
 
     .burger {
@@ -189,6 +608,64 @@ header #logo-slogan h2 {
     }
 
     #nav-toggle:checked ~ .nav-links {
-        max-height: 191px;
+        max-height: 240px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    #terminal-window {
+        opacity: 0;
+    }
+
+    #home-about .section-body {
+      flex-direction: column;
+    }    
+
+    .third {
+      flex-grow:0;
+      flex-basis:50%;
+    }
+
+    .windows-stacked :nth-child(1) {
+        left: 5%
+    }
+    
+    .windows-stacked :nth-child(2) {
+        left: 10%
+    
+    }
+    
+    .windows-stacked :nth-child(3) {
+        left: 15%
+    }
+    
+}
+
+@media (max-width: 350px) {
+
+    .nav-fixed {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .nav-links {
+        padding-left: 5px;
+    }
+
+    .windows-stacked :nth-child(1) {
+        left: 0%
+    }
+    
+    .windows-stacked :nth-child(2) {
+        left: 3%
+    
+    }
+    
+    .windows-stacked :nth-child(3) {
+        left: 5%
     }
 }
+

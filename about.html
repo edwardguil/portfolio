@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script> 
+</head>
+<body onload="passiveAnimations()">
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-fixed">
+            <!-- Hamburger menu and hidden checkbox for toggling nav-links -->
+            <input type="checkbox" id="nav-toggle" hidden>
+            <label for="nav-toggle" class="burger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </label>
+            <!-- Navigation links -->
+            <div class="nav-links"> 
+                <div>
+                    <a class="nav-link active" href="index.html">home</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link" href="projects.html">projects</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link" href="about.html">about</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link" href="contact.html">contact</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Night mode button -->
+            <div id="nav-nightmode">
+                <div class="slider">
+                    <div class="ball" onclick="slideBall()">
+                        <img src="images/sun.png" width="40px"/>
+                        <img class="hidden" src="images/moon.png" width="40px"/>
+                    </div>
+                    <div>
+                        <p>day</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main>
+        <section class="vh100 flex v-center h-center" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>About Me
+                        <div class="underline">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </h2>
+                </div>
+                <div class="section-body">
+                    <div class="windows-stacked">
+                        <div class="mac-window" id="terminal-window">
+                            <div class="mac-header">
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <p>terminal.sh</p>
+                            </div>
+                            <div class="mac-body">
+                                <div>
+                                    <p>(root@portfolio) - [~]<br/># ls</p>
+                                    <p>runAbout.sh</p>
+                                    <p>(root@portfolio) - [~]<br/># ./runAbout.sh</p>
+                                    <p class="edit">Running...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mac-window" id="about-window">
+                            <div class="mac-header">
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <p>aboutMe.html</p>
+                            </div>
+                            <div class="mac-body">
+                                <div class="row">
+                                    <img src="images/me.jpg" width="150px" height="150px"/>
+                                    <p>Hi there! I'm Edward and I'm passionate 
+                                        about AI safety and alignment research. I think unaligned 
+                                        AI, AGI or not, poses many threats to humanity. Threats  
+                                        that may not be intially obvious and threats that we are unable to recover from. 
+                                        When I'm not geeking out about AI, you'll 
+                                        often find me surfing, hiking, cycling, 
+                                        playing tennis, or strategizing my next 
+                                        move on the GO board.
+                                    </p>
+                                </div>
+                                <div class="row">  
+                                    <p>I'm aware of the privilege I have in life, 
+                                    and I feel a sense of responsibility to 
+                                    use it to make a positive impact. I believe 
+                                    that humor and creativity can help us 
+                                    think outside the box and come up with 
+                                    novel solutions to complex problems.</p>
+                                    <div id="about-quote">
+                                        <p>
+                                            "If you're not
+                                            confused, you're
+                                            not paying 
+                                            attention."
+                                            - Tom Peters
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
