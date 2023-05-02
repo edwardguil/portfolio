@@ -144,6 +144,10 @@ function bringToFront(index) {
     }
 }
 
+function sendForm() {
+    const x = 2;
+}
+
 function passiveAnimations() {
     typedText(34, false);
     runningText(7);
