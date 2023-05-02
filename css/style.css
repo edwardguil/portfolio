@@ -27,8 +27,6 @@
 
     --text-highlight: rgba(255, 255, 0, 0.639);
     --header-slogan: var(--primary-black);
-
-
 }
 
 body {
@@ -195,6 +193,8 @@ nav a {
 .ball {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     border-radius: 50%;
     background-color: var(--primary-orange);
     border: 2px solid var(--primary-black);
@@ -223,6 +223,10 @@ nav a {
 
 /* Home Header styles */
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     position: relative;
 }
 
@@ -258,6 +262,12 @@ header #logo-slogan h2 {
 } 
 
 /* Home Projects */
+#home-projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 .section-container {
     display: flex;
@@ -277,7 +287,12 @@ header #logo-slogan h2 {
     width: 100%
 }
 
-#home-projects .underline div {
+.section-header .underline :last-child {
+    left: 10px;
+    margin-top: 5px;
+}
+
+#home-projects .underline div, #projects .underline .div {
     top: 0px;
 }
 
@@ -381,12 +396,21 @@ header #logo-slogan h2 {
 }
   
 /* Home About */
+#home-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 450px;
+}
+
 #home-about .section-header {
     text-align: center;
 }
 
 #home-about .section-body {
     justify-content: space-around;
+    min-height: 300px;
 }
 
 
@@ -454,6 +478,14 @@ header #logo-slogan h2 {
 }
 
 /* Home Contact */
+#home-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 450px;
+}
+
 #home-contact .section-header {
     text-align: left;
 }
@@ -461,7 +493,9 @@ header #logo-slogan h2 {
 #home-contact .section-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 43%;
+    min-height: 300px;
 }
 
 #home-contact .mac-window {
@@ -480,8 +514,112 @@ header #logo-slogan h2 {
     margin: 10px;
 }
 
+/* Projects Page */
+#projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    height: fit-content;
+}
+
+#projects .section-container {
+    height: fit-content
+}
+
+.project-card {
+    border: 2px solid var(--primary-black);
+    border-radius: 10px;
+    width: 120px;
+    height: 140px;
+    margin: 8px;
+    padding-top: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+#projects .mac-window {
+    position: relative;
+    width: fit-content;
+    min-height: 300px;
+    height: fit-content;
+}
+
+#projects .mac-body {
+    min-height: 320px;
+}
+
+#projects .mac-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#projects .mac-body > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#projects .row p {
+    max-width: 400px;
+}
+
+#about .mac-body .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#projects .underline {
+    margin-top: 6px;
+}
+
+#projects .mac-body > div p, #projects .mac-body > div img {
+    margin: 10px;
+}
+
+#project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-number {
+    position: absolute;
+    top: -15px;
+    left: 43px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--primary-black);
+    background-color: #6CE5E8;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects .hidden {
+    display: none;
+}
+
+#projects .mac-body {
+    background: linear-gradient(120deg, #9DDFED, #FACDEA);
+}
+
 /* About Page */
 #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
     min-height: 80vh;
     height: 85vh;
     margin-top: 81px;
@@ -541,6 +679,9 @@ header #logo-slogan h2 {
     padding-left: 10px;
 }
 
+.row {
+    flex-wrap: nowrap;
+}
 
 /* Contact Page */
 #contact .section-header {
@@ -549,13 +690,21 @@ header #logo-slogan h2 {
 }
 
 #contact {
-    margin-top: 80px;
+    min-height: 700px;
     height: 85vh;
+    margin-top: 81px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #contact .section-header {
     margin-bottom: 50px;
     max-height: 90px;
+}
+
+#contact .section-container {
+    min-height: 600px;
 }
 
 #contact-window {
@@ -680,6 +829,15 @@ header #logo-slogan h2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.row-reverse {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
 }
 
 @media (max-width: 804px) {
@@ -708,7 +866,7 @@ header #logo-slogan h2 {
         border-bottom: 3px solid var(--primary-black);
     }
 
-    #about-window .row {
+    #about .mac-body .row {
         flex-direction: column;
     }
 
@@ -743,6 +901,10 @@ header #logo-slogan h2 {
 
 @media (max-width: 500px) {
 
+    #project-3 .mac-body :last-child img {
+        width: 80px;
+    }
+
     #terminal-window {
         opacity: 0;
     }
@@ -776,6 +938,15 @@ header #logo-slogan h2 {
 }
 
 @media (max-width: 350px) {
+
+    .project-card {
+        margin: 0px;
+        margin-top: 15px;
+    }
+
+    .section-body {
+        width: 100%;
+    }
 
     .nav-fixed {
         padding-left: 5px;

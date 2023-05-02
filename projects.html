@@ -1,21 +1,178 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <nav>
-            <a class="nav-link" href="index.html">home</a>
-            <a class="nav-link" href="projects.html">projects</a>
-            <a class="nav-link" href="#">about</a>
-            <a class="nav-link" href="#">contact</a>
-        </nav>        
-        <header>
-            <h1>Edward Guilfoyle</h1>
-            <h2>machine learning researcher & developer</h2>
-        </header>
-    </body>
-    
+<head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script> 
+</head>
+<body onload="passiveAnimations()">
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-fixed">
+            <!-- Hamburger menu and hidden checkbox for toggling nav-links -->
+            <input type="checkbox" id="nav-toggle" hidden>
+            <label for="nav-toggle" class="burger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </label>
+            <!-- Navigation links -->
+            <div class="nav-links"> 
+                <div>
+                    <a class="nav-link" href="index.html">home</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link active" href="projects.html">projects</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link" href="about.html">about</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <a class="nav-link" href="contact.html">contact</a>
+                    <div class="underline">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Night mode button -->
+            <div id="nav-nightmode">
+                <div class="slider">
+                    <div class="ball" onclick="slideBall()">
+                        <img src="images/sun.png" width="40px"/>
+                        <img class="hidden" src="images/moon.png" width="40px"/>
+                    </div>
+                    <div>
+                        <p>day</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main>
+        <section id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Projects
+                        <div class="underline">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </h2>
+                </div>
+                <div class="section-body">
+                    <div id="project-selection">
+
+                    </div>
+                    <div class="mac-window hidden" id="project-1">
+                        <div class="mac-header">
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <p>Auslan Sign Language Translation (SLT)</p>
+                        </div>
+                        <div class="mac-body">
+                            <div class="row">
+                                <img src="images/uqlogo.png" width="150px" height="110px"/>
+                                <p>Train an AI how to translate Auslan into English. Implementented state of the art AI in German SLT, and progressively trained the AI on a 2TB corpus. Worked underneath UQ researcher on large project. Open-source code <a href="#">here</a></p>
+                            </div>
+                            <div id="project-cards">
+                                <div class="project-card">
+                                    <div class="card-number">1</div>
+                                    <p>Teach AI to translate 25 languages</p>
+                                    <img src="images/book.png" width="55px"/>
+                                </div>
+                                <div class="project-card">
+                                    <div class="card-number">2</div>
+                                    <p>Teach AI to identify human actions</p>
+                                    <img src="images/human.png" width="30px"/>
+                                </div>
+                                <div class="project-card">
+                                    <div class="card-number">3</div>
+                                    <p>Teach AI to focus on human hands </p>
+                                    <img src="images/hands.png" width="45px"/>
+                                </div>
+                                <div class="project-card">
+                                    <div class="card-number">4</div>
+                                    <p>Teach AI to translate sign language</p>
+                                    <img src="images/speech-icon.png" width="60px"/>
+                                </div>
+                                <div class="project-card">
+                                    <div class="card-number">5</div>
+                                    <p>Teach AI to translate 25 languages</p>
+                                    <img src="images/speech-icon.png" width="60px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mac-window hidden" id="project-2">
+                        <div class="mac-header">
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <p>Aceleron - A Neural Network Framework </p>
+                        </div>
+                        <div class="mac-body">
+                            <div class="row">
+                                <img src="images/aceleron.png" width="100px" height="80px"/>
+                                <p>Aceleron is a beautifully simple neural network framework that covers the core mechanics of traditional neural networks and it's approach from a high performance computing perspective.</p>
+                            </div>
+                            <div class="row-reverse">
+                                <p> - C++ and Python versions<br/>
+                                    - Parralellized with CUDA<br/>
+                                    - Detailed performance analysis<br/>
+                                    - Intelligent use of OOP design<br/>
+                                    - Rewrote core numpy functions in C++<br/><br/>
+
+                                    Code  <a href="#">here</a>.
+                                </p>
+                                <div>
+                                    <img src="images/c++.png" width="50px"/>
+                                    <img src="images/cuda.png" width="50px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mac-window" id="project-3">
+                        <div class="mac-header">
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <div class="ball"></div>
+                            <p>Dough Not Shoot - A multiplayer game</p>
+                        </div>
+                        <div class="mac-body">
+                            <div class="row">
+                                <img src="images/doughnotshoot.png" width="150px" height="100px"/>
+                                <p>Dough Not Shoot is a multiplayer shooter. It features a dedicated server, basic anti-cheat and netcode for low bandwith systems. All the assets were hand crafted from playdough. Built for a 2 day hackathon, it won the Best Design Award.
+                                    <br/>
+                                    <br/>
+                                    <br/>Play the game <a href="#">here</a>. Code <a href="#">here</a>.  
+                                </p>
+                            </div>
+                            <div class="">
+                                <img src="images/owl.png" width="95px" height="140px"/>
+                                <img src="images/tree.png" width="80px"/>
+                                <img src="images/frog.png" width="100px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
 </html>
