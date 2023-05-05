@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Responsive Navbar</title>
+    <title>Edward Portfolio | Projects</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script> 
 </head>
@@ -52,8 +52,8 @@
             <div id="nav-nightmode">
                 <div class="slider">
                     <div class="ball" onclick="slideBall()">
-                        <img src="images/sun.png" width="40px"/>
-                        <img class="hidden" src="images/moon.png" width="40px"/>
+                        <img src="images/sun.png" width="40px" alt="sun icon"/>
+                        <img class="hidden" src="images/moon.png" width="40px" alt="moon icon"/>
                     </div>
                     <div>
                         <p>day</p>
@@ -75,98 +75,130 @@
                     </h2>
                 </div>
                 <div class="section-body">
+                    <div id="project-selection-desktop">
+                        <div class="text-arrow" onclick="swapProject(0)"> 
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="right arrow"
+                                width="66.000000pt" height="36.000000pt" viewBox="0 0 66.000000 36.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,36.000000) scale(0.100000,-0.100000)"
+                                fill="currentColor" stroke="currentColor"> <path d="M20 344 c0 -3 30 -42 66 -85 58 -70 65 -81 53 -97 -8 -9 -38 -46 -67 -81 -29 -35 -51 -65 -49 -67 3 -3 158 37 517 134 124 34 152 20 -230 122 -146 39 -271 73 -277 75 -7 2 -13 2 -13 -1z"/> </g>
+                            </svg>
+                            <h2>Project 1</h2>
+                        </div>
+                        <div class="text-arrow hidden" onclick="swapProject(1)"> 
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="right arrow"
+                                width="66.000000pt" height="36.000000pt" viewBox="0 0 66.000000 36.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,36.000000) scale(0.100000,-0.100000)"
+                                fill="currentColor" stroke="currentColor"> <path d="M20 344 c0 -3 30 -42 66 -85 58 -70 65 -81 53 -97 -8 -9 -38 -46 -67 -81 -29 -35 -51 -65 -49 -67 3 -3 158 37 517 134 124 34 152 20 -230 122 -146 39 -271 73 -277 75 -7 2 -13 2 -13 -1z"/> </g>
+                            </svg>
+                            <h2>Project 2</h2>
+                        </div>
+                        <div class="text-arrow hidden" onclick="swapProject(2)"> 
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="right arrow"
+                                width="66.000000pt" height="36.000000pt" viewBox="0 0 66.000000 36.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,36.000000) scale(0.100000,-0.100000)"
+                                fill="currentColor" stroke="currentColor"> <path d="M20 344 c0 -3 30 -42 66 -85 58 -70 65 -81 53 -97 -8 -9 -38 -46 -67 -81 -29 -35 -51 -65 -49 -67 3 -3 158 37 517 134 124 34 152 20 -230 122 -146 39 -271 73 -277 75 -7 2 -13 2 -13 -1z"/> </g>
+                            </svg>
+                            <h2>Project 3</h2>
+                        </div>
+                    </div>
                     <div id="project-selection">
+                        <h3>Display:</h3>
+                        <div class="text-box active" onclick="swapProject(0)">
+                            <h3>1</h3>
+                        </div>
+                        <div class="text-box" onclick="swapProject(1)">
+                            <h3>2</h3>
+                        </div>
+                        <div class="text-box" onclick="swapProject(2)">
+                            <h3>3</h3>
+                        </div>
+                    </div>
+                    <div id="projects-wrapper">
+                        <div class="mac-window" id="project-2">
+                            <div class="mac-header">
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <p>Aceleron - A Neural Network Framework </p>
+                            </div>
+                            <div class="mac-body">
+                                <div class="row">
+                                    <img src="images/aceleron.png" width="100px" height="80px" alt="aceleron logo"/>
+                                    <p>Aceleron is a beautifully simple neural network framework that covers the core mechanics of traditional neural networks and it's approach from a high performance computing perspective.</p>
+                                </div>
+                                <div class="row-reverse">
+                                    <p> - C++ and Python versions<br/>
+                                        - Parralellized with CUDA<br/>
+                                        - Detailed performance analysis<br/>
+                                        - Intelligent use of OOP design<br/>
+                                        - Rewrote core numpy functions in C++<br/><br/>
 
-                    </div>
-                    <div class="mac-window hidden" id="project-1">
-                        <div class="mac-header">
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <p>Auslan Sign Language Translation (SLT)</p>
-                        </div>
-                        <div class="mac-body">
-                            <div class="row">
-                                <img src="images/uqlogo.png" width="150px" height="110px"/>
-                                <p>Train an AI how to translate Auslan into English. Implementented state of the art AI in German SLT, and progressively trained the AI on a 2TB corpus. Worked underneath UQ researcher on large project. Open-source code <a href="#">here</a></p>
-                            </div>
-                            <div id="project-cards">
-                                <div class="project-card">
-                                    <div class="card-number">1</div>
-                                    <p>Teach AI to translate 25 languages</p>
-                                    <img src="images/book.png" width="55px"/>
-                                </div>
-                                <div class="project-card">
-                                    <div class="card-number">2</div>
-                                    <p>Teach AI to identify human actions</p>
-                                    <img src="images/human.png" width="30px"/>
-                                </div>
-                                <div class="project-card">
-                                    <div class="card-number">3</div>
-                                    <p>Teach AI to focus on human hands </p>
-                                    <img src="images/hands.png" width="45px"/>
-                                </div>
-                                <div class="project-card">
-                                    <div class="card-number">4</div>
-                                    <p>Teach AI to translate sign language</p>
-                                    <img src="images/speech-icon.png" width="60px"/>
-                                </div>
-                                <div class="project-card">
-                                    <div class="card-number">5</div>
-                                    <p>Teach AI to translate 25 languages</p>
-                                    <img src="images/speech-icon.png" width="60px"/>
+                                        Code  <a href="https://github.com/edwardguil/Aceleron" target="_blank">here</a>.
+                                    </p>
+                                    <div>
+                                        <img src="images/c++.png" width="50px" alt="c++ logo"/>
+                                        <img src="images/cuda.png" width="50px" alt="cuda logo"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mac-window hidden" id="project-2">
-                        <div class="mac-header">
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <p>Aceleron - A Neural Network Framework </p>
-                        </div>
-                        <div class="mac-body">
-                            <div class="row">
-                                <img src="images/aceleron.png" width="100px" height="80px"/>
-                                <p>Aceleron is a beautifully simple neural network framework that covers the core mechanics of traditional neural networks and it's approach from a high performance computing perspective.</p>
+                        <div class="mac-window hidden" id="project-3">
+                            <div class="mac-header">
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <p>Dough Not Shoot - A multiplayer game</p>
                             </div>
-                            <div class="row-reverse">
-                                <p> - C++ and Python versions<br/>
-                                    - Parralellized with CUDA<br/>
-                                    - Detailed performance analysis<br/>
-                                    - Intelligent use of OOP design<br/>
-                                    - Rewrote core numpy functions in C++<br/><br/>
-
-                                    Code  <a href="#">here</a>.
-                                </p>
-                                <div>
-                                    <img src="images/c++.png" width="50px"/>
-                                    <img src="images/cuda.png" width="50px"/>
+                            <div class="mac-body">
+                                <div class="row">
+                                    <img src="images/doughnotshoot.png" width="150px" height="100px" alt="doughnotshoot logo"/>
+                                    <p>Dough Not Shoot is a multiplayer shooter. It features a dedicated server, basic anti-cheat and netcode for low bandwith systems. All the assets were hand crafted from playdough. Built for a 2 day hackathon, it won the Best Design Award.
+                                        <br/>
+                                        <br/>
+                                        <br/>Play the game <a href="https://drawde96.itch.io/dough-not-shoot" target="_blank">here</a>. 
+                                        Code <a href="https://github.com/edwardguil/doughnotshoot" target="_blank">here</a>.  
+                                    </p>
+                                </div>
+                                <div class="">
+                                    <img src="images/owl.png" width="95px" height="140px" alt="playdough owl"/>
+                                    <img src="images/tree.png" width="80px" height="140px" alt="playdough tree"/>
+                                    <img src="images/frog.png" width="100px" height="140px" alt="playdough frog"/>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mac-window" id="project-3">
-                        <div class="mac-header">
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <p>Dough Not Shoot - A multiplayer game</p>
-                        </div>
-                        <div class="mac-body">
-                            <div class="row">
-                                <img src="images/doughnotshoot.png" width="150px" height="100px"/>
-                                <p>Dough Not Shoot is a multiplayer shooter. It features a dedicated server, basic anti-cheat and netcode for low bandwith systems. All the assets were hand crafted from playdough. Built for a 2 day hackathon, it won the Best Design Award.
-                                    <br/>
-                                    <br/>
-                                    <br/>Play the game <a href="#">here</a>. Code <a href="#">here</a>.  
-                                </p>
+                        <div class="mac-window hidden" id="project-1">
+                            <div class="mac-header">
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <div class="ball"></div>
+                                <p>Auslan Sign Language Translation (SLT)</p>
                             </div>
-                            <div class="">
-                                <img src="images/owl.png" width="95px" height="140px"/>
-                                <img src="images/tree.png" width="80px"/>
-                                <img src="images/frog.png" width="100px"/>
+                            <div class="mac-body">
+                                <div class="row">
+                                    <img src="images/uqlogo.png" width="150px" height="110px" alt="university logo"/>
+                                    <p>Train an AI how to translate Auslan into English. Implementented state of the art AI in German SLT, 
+                                        and progressively trained the AI on a 2TB corpus. Worked underneath UQ researcher on large project. 
+                                        Open-source code <a href="https://github.com/edwardguil/MMTL" target="_blank">here</a></p>
+                                </div>
+                                <div id="project-cards">
+                                    <div class="project-card">
+                                        <div class="card-number">1</div>
+                                        <p>Teach AI to translate 25 languages</p>
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="book" preserveAspectRatio="xMidYMid meet" viewBox="0 0 93 56">  <g transform="translate(0.000000,56.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="currentColor"> <path d="M77 553 c-4 -3 -7 -21 -7 -40 0 -31 -2 -33 -35 -33 l-35 0 0 -240 0 -240 465 0 465 0 0 240 0 240 -34 0 c-33 0 -35 2 -38 38 l-3 37 -145 3 c-80 1 -155 0 -166 -2 -12 -3 -35 -20 -52 -37 -28 -29 -30 -30 -43 -12 -35 48 -55 53 -215 53 -83 0 -154 -3 -157 -7z m345 -42 l33 -29 3 -206 c2 -113 0 -206 -3 -206 -4 0 -18 9 -32 20 -23 18 -41 20 -179 20 l-154 0 0 215 0 215 150 0 150 0 32 -29z m418 -186 l0 -215 -154 0 c-138 0 -156 -2 -179 -20 -14 -11 -28 -20 -31 -20 -3 0 -6 83 -6 185 0 282 2 285 222 285 l148 0 0 -215z m-768 -42 l3 -188 161 -3 c155 -2 163 -3 188 -27 14 -13 26 -29 26 -35 0 -7 -72 -10 -215 -10 l-215 0 0 225 0 225 25 0 25 0 2 -187z m838 -38 l0 -225 -215 0 c-143 0 -215 3 -215 10 0 6 12 22 26 35 25 24 33 25 188 27 l161 3 3 188 2 187 25 0 25 0 0 -225z"></path> <path d="M208 443 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M208 363 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M208 283 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M208 203 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M598 443 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M598 363 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M598 283 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> <path d="M598 203 c34 -2 90 -2 125 0 34 2 6 3 -63 3 -69 0 -97 -1 -62 -3z"></path> </g> </svg>
+                                    </div>
+                                    <div class="project-card">
+                                        <div class="card-number">2</div>
+                                        <p>Teach AI to identify human actions</p>
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="human figure" preserveAspectRatio="xMidYMid meet" viewBox="1.17 1.08 40.83 66.75">  <g transform="translate(0.000000,69.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="currentColor"> <path d="M152 664 c-30 -21 -30 -77 0 -98 31 -22 64 -20 88 4 27 27 25 62 -3 88 -27 26 -54 28 -85 6z m76 -16 c15 -15 15 -51 0 -66 -34 -34 -97 1 -81 45 12 33 57 45 81 21z"></path> <path d="M157 501 l-42 -39 -30 24 c-36 29 -69 28 -73 -2 -2 -15 11 -34 45 -63 41 -36 53 -41 81 -36 l32 6 0 -51 c0 -37 -13 -84 -45 -167 -48 -123 -50 -149 -9 -159 33 -8 44 3 84 85 18 39 37 71 40 71 4 0 11 -10 17 -22 17 -37 104 -128 122 -128 22 0 41 19 41 40 0 9 -17 41 -38 71 -53 76 -83 153 -91 232 -4 37 -4 67 0 67 3 0 18 -18 33 -41 20 -30 33 -39 49 -37 34 5 32 33 -9 99 -60 99 -134 117 -207 50z m136 8 c21 -10 87 -108 87 -130 0 -22 -27 -6 -44 26 -23 43 -41 59 -59 52 -10 -4 -11 -22 -6 -83 l8 -79 -67 -132 c-48 -96 -72 -133 -85 -133 -32 0 -29 25 18 144 36 95 45 130 45 180 0 35 -3 66 -7 69 -3 4 -17 0 -30 -8 -29 -20 -47 -14 -98 30 -33 28 -37 35 -22 40 11 5 28 -2 48 -19 l31 -27 44 41 c46 43 88 52 137 29z m17 -289 c7 -19 31 -60 52 -90 41 -61 48 -90 21 -90 -22 0 -99 88 -119 135 -13 31 -13 39 2 66 17 34 24 31 44 -21z"></path> </g> </svg>
+                                    </div>
+                                    <div class="project-card">
+                                        <div class="card-number">3</div>
+                                        <p>Teach AI to focus on human hands </p>
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="human hands" preserveAspectRatio="xMidYMid meet" viewBox="0.03 0 65.82 68.85">  <g transform="translate(0.000000,69.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="currentColor"> <path d="M290 683 c0 -5 9 -23 21 -42 l20 -34 20 32 c27 44 24 51 -21 51 -22 0 -40 -3 -40 -7z m50 -23 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0 6 5 10 10 10 6 0 10 -4 10 -10z"></path> <path d="M205 610 c-21 -40 -20 -40 25 -40 44 0 48 8 24 45 -21 32 -30 31 -49 -5z m35 -10 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0 6 5 10 10 10 6 0 10 -4 10 -10z"></path> <path d="M405 610 c-21 -40 -20 -40 25 -40 22 0 40 2 40 5 0 14 -32 65 -40 65 -5 0 -16 -13 -25 -30z m35 -10 c0 -5 -4 -10 -10 -10 -5 0 -10 5 -10 10 0 6 5 10 10 10 6 0 10 -4 10 -10z"></path> <path d="M110 515 c-7 -8 -21 -15 -32 -15 -11 0 -22 -9 -25 -20 -3 -11 -14 -20 -24 -20 -26 0 -32 -33 -27 -158 3 -82 8 -115 23 -142 11 -19 22 -60 25 -90 5 -54 6 -55 43 -64 23 -6 51 -6 75 0 36 9 37 10 42 64 4 44 12 64 40 99 19 23 48 50 63 58 27 14 29 13 82 -42 51 -53 54 -60 57 -113 3 -57 3 -57 40 -66 24 -6 52 -6 75 0 38 9 38 10 41 64 2 30 9 62 17 70 25 29 36 95 33 205 -3 104 -4 110 -24 113 -12 2 -24 12 -27 23 -3 11 -14 19 -25 19 -11 0 -25 7 -32 15 -7 8 -21 15 -32 15 -10 0 -21 -7 -24 -15 -4 -8 -14 -15 -23 -15 -34 0 -41 -22 -41 -127 0 -94 -7 -121 -25 -93 -3 6 -37 10 -75 10 -38 0 -72 -4 -75 -10 -17 -27 -25 0 -27 97 -3 101 -4 108 -26 119 -13 6 -29 17 -35 23 -16 16 -42 14 -57 -4z m50 -100 c0 -57 4 -95 10 -95 6 0 10 33 10 80 0 64 3 80 15 80 12 0 15 -18 15 -104 0 -120 9 -137 57 -112 20 10 34 11 44 5 12 -8 11 -12 -6 -22 -30 -18 -95 -89 -106 -115 -5 -13 -9 -41 -9 -62 0 -41 -11 -50 -60 -50 -52 0 -60 8 -60 61 0 36 -6 58 -22 80 -20 27 -23 45 -27 155 -3 109 -1 124 13 124 13 0 16 -12 16 -70 0 -40 4 -70 10 -70 6 0 10 37 10 90 0 73 3 90 15 90 12 0 15 -15 15 -74 0 -41 5 -78 10 -81 6 -4 10 26 10 83 0 90 3 102 27 102 10 0 13 -22 13 -95z m380 -6 c6 -104 18 -102 22 4 4 102 23 87 26 -20 3 -108 22 -127 22 -23 0 58 3 70 16 70 14 0 16 -15 13 -123 -3 -94 -8 -129 -21 -149 -9 -14 -18 -50 -20 -79 -3 -47 -6 -55 -29 -63 -14 -5 -42 -6 -62 -2 -36 7 -37 8 -37 55 0 40 -6 56 -37 95 -20 26 -49 54 -65 62 -15 8 -28 19 -28 23 0 16 24 19 52 5 51 -26 58 -13 58 107 0 90 3 109 15 109 12 0 15 -16 15 -80 0 -47 4 -80 10 -80 6 0 10 36 10 88 0 49 3 92 7 96 19 19 28 -9 33 -95z"></path> </g> </svg>
+                                    </div>
+                                    <div class="project-card">
+                                        <div class="card-number">4</div>
+                                        <p>Teach AI to translate sign language</p>
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" alt="speech bubble"  preserveAspectRatio="xMidYMid meet" viewBox="0 -0.08 81 61.08">  <g transform="translate(0.000000,61.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="currentColor"> <path d="M51 596 c-45 -25 -50 -49 -51 -238 0 -176 0 -177 26 -207 21 -25 33 -31 66 -31 l40 0 -7 -60 c-4 -33 -4 -60 -1 -60 3 0 54 27 114 60 l109 60 206 0 205 0 26 31 c26 30 26 31 26 212 0 195 -4 209 -57 236 -34 17 -670 15 -702 -3z m711 -33 c16 -14 18 -34 18 -198 0 -141 -3 -186 -14 -201 -13 -17 -31 -19 -233 -24 l-218 -5 -84 -47 -84 -47 7 48 6 48 -52 5 c-77 8 -78 12 -78 220 0 165 1 179 20 198 19 19 33 20 357 20 299 0 338 -2 355 -17z"></path> </g> </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

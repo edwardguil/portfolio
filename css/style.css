@@ -18,6 +18,7 @@
 }
 
 :root {
+    /* Setup the color scheme for lightmode */
     --primary-orange: #FD7547;
     --secondary-orange: #FEAD91;
     --primary-black: black;
@@ -25,9 +26,71 @@
     --primary-grey: #808080bf;
     --primary-purple: #420D00;
 
+    --active-link: var(--primary-orange);
+    --slider-ball: var(--primary-orange);
+    --mac-close: var(--primary-orange);
+
+    --mac-expand: #FEE550;
+    --mac-minimize: #05F240;
+    --mac-window: white;
+    --mac-header: #05DBF2;
+
+    --mac-focused-window-from: #9DDFED;
+    --mac-focused-window-to: #FACDEA;
+
+    --projects-selection : var(--primary-orange);
+
+    --enter-button: #262626;
+    --enter-button-border: #4F4C4D;
+    --enter-button-text: var(--primary-white);
+
+    --socials-hover: var(--primary-orange);
+    --socials-color: var(--primary-black);
+
+    --input-text: var(--primary-black);
+
     --text-highlight: rgba(255, 255, 0, 0.639);
+    --underline-secondary: #420D00;
+    --underline-primary: var(--primary-orange);
     --header-slogan: var(--primary-black);
 }
+
+:root.night {
+    /* Setup the color scheme for darkmode */
+    --primary-orange: #800080;
+    --secondary-orange: transparent;
+    --primary-black: #800080;
+    --primary-white: black;
+    --primary-grey: rgba(128, 0, 128, 0.623);
+    --primary-purple: #0e3807;
+
+    --active-link: #cf07cf;
+
+    --mac-close: transparent;
+    --mac-expand: transparent;
+    --mac-minimize: transparent;
+    --mac-window: rgba(0, 0, 0, 0.404);
+    --mac-header: rgba(0, 0, 0, 0.404);
+
+    --mac-focused-window-from: rgba(0, 0, 0, 0.493);
+    --mac-focused-window-to: rgba(0, 0, 0, 0.493);
+
+    --projects-selection: #a513a583;
+
+    --enter-button: transparent;
+    --enter-button-border: #800080;
+    --enter-button-text: #800080;
+
+    --socials-hover: #cf07cf;
+
+    --input-text: #cf07cf;
+
+    --text-highlight: #d101d150;
+    --underline-secondary: #5711fc;
+    --underline-primary: var(--primary-orange);
+    --header-slogan: var(--primary-black);
+}
+
 
 body {
     background-color: var(--primary-white);
@@ -39,6 +102,7 @@ body {
         linear-gradient(to top, var(--primary-grey) 2px, transparent 2px);
     margin: 0;
 }
+
 
 h1, a {
     font-weight: bold;
@@ -73,7 +137,7 @@ nav {
     padding-left: 50px;
     min-height: 65px;
     margin: 0 auto;
-    box-sizing: border-box; /* Add this line */
+    box-sizing: border-box;
 }
 
 .nav-links {
@@ -92,7 +156,7 @@ nav a {
 }
 
 .nav-link.active {
-    color: var(--primary-orange);
+    color: var(--active-link);
 }
 
 .underline {
@@ -112,7 +176,7 @@ nav a {
     position: relative;
     top: -6px;
     width: 100%;
-    background-color: var(--primary-orange);
+    background-color: var(--underline-primary);
     height: 5px;
 }
 
@@ -120,7 +184,7 @@ nav a {
     position: relative;
     width: 102%;
     top: -6px;
-    background-color: #420D00;
+    background-color: var(--underline-secondary);
     height: 5px;
 }
 
@@ -168,7 +232,7 @@ nav a {
 }
 
 
-/* Night mode button */ 
+/* Night mode button styles */ 
 
 .slider {
     display: flex;
@@ -196,7 +260,7 @@ nav a {
     min-width: 12px;
     min-height: 12px;
     border-radius: 50%;
-    background-color: var(--primary-orange);
+    background-color: var(--slider-ball);
     border: 2px solid var(--primary-black);
 }
 
@@ -209,12 +273,17 @@ nav a {
     transition: all 0.3s ease-in-out;
 }
 
-.ball img {
+
+.ball svg, .ball img {
     position: absolute;
     top: 2px;
     left: 2px;
     opacity: 1;
     transition: opacity .3s linear;
+}
+
+.ball:hover :nth-child(1) {
+    content: url('/images/sun-hover.png');
 }
 
 .ball img.hidden {
@@ -240,6 +309,24 @@ header #logo-slogan {
 header #logo-slogan h2 {
     text-align: right;
     color: var(--header-slogan);
+}
+
+:root.night header #logo-slogan :first-child {
+    width: 100%;
+    content: url('/images/eg-night.svg');
+}
+
+:root.night header #logo-slogan :nth-child(2) {
+    width: 100%;
+    content: url('/images/eg-stacked-night.png');
+}
+
+header #logo-slogan img {
+    width: auto;
+}
+
+header #logo-slogan :nth-child(2) {
+    display: none;
 }
 
 #arrow-down {
@@ -294,6 +381,13 @@ header #logo-slogan h2 {
 
 #home-projects .underline div, #projects .underline .div {
     top: 0px;
+}
+
+#home-projects .mac-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .section-header h2 {
@@ -357,7 +451,7 @@ header #logo-slogan h2 {
 
 .mac-header {
     display: flex;
-    background-color: #05DBF2;
+    background-color: var(--mac-header);
     border-bottom: 2px solid var(--primary-black);
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -370,16 +464,16 @@ header #logo-slogan h2 {
     margin-left: 7px;
 }
 
-.mac-header .ball .cross {
-    background-color: #FF6633;
+.mac-header :nth-child(1) {
+    background-color: var(--mac-close);
 }
 
 .mac-header :nth-child(2) {
-    background-color: #FEE550
+    background-color: var(--mac-expand)
 }
 
 .mac-header :nth-child(3) {
-    background-color: #05F240;
+    background-color: var(--mac-minimize);
 }
 
 
@@ -390,18 +484,18 @@ header #logo-slogan h2 {
   
 .mac-body {
     height: 100%;
-    background-color: white;
+    background-color: var(--mac-window);
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-  
+
 /* Home About */
 #home-about {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    min-height: 450px;
+    height: 85vh;
+    min-height: 600px;
 }
 
 #home-about .section-header {
@@ -471,11 +565,12 @@ header #logo-slogan h2 {
     align-items: center;
     width: 100px;
     height: 35px;
-    color: var(--primary-white);
-    background-color: #262626;
-    border: 3px solid #4F4C4D;
+    color: var(--enter-button-text);
+    background-color: var(--enter-button);
+    border: 3px solid var(--enter-button-border);
     border-radius: 4px;
 }
+
 
 /* Home Contact */
 #home-contact {
@@ -514,18 +609,109 @@ header #logo-slogan h2 {
     margin: 10px;
 }
 
+#home-contact .text-button {
+    flex-direction: row;
+}
+
+#home-contact .text-button h2 {
+    display: inline;
+}
+
+#home-contact .text-button svg {
+    width: 40px;
+    height: 40px;
+}
+
 /* Projects Page */
 #projects {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 80px;
-    height: fit-content;
 }
 
-#projects .section-container {
-    height: fit-content
+#projects .section-body {
+    display: inline-block;
+    position: relative;
+    max-width: 1000px;
 }
+
+#projects-wrapper {
+    flex-grow: 1;
+    margin-left: 300px;
+    float: right;
+    vertical-align: top;
+}
+
+#project-selection-desktop {
+    display: inline-block;
+    position: absolute;
+    top: 75px;
+    vertical-align: top;
+    width: 280px;
+    height: 200px;
+}
+
+#projects .section-header h2 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#project-selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    font-size: 20px;
+}
+
+.text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--primary-black);
+    background-color: var(--secondary-orange);
+    height: 40px;
+    width: 40px;
+    margin: 20px;
+}
+
+.text-box:hover {
+    cursor: pointer;
+    background-color: var(--projects-selection);
+}
+
+.text-box.active {
+    background-color: var(--projects-selection);
+}
+
+.text-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-arrow:hover {
+    cursor: pointer;
+}
+
+.text-arrow svg {
+    width: 60px;
+}
+
+.text-arrow.hidden:hover svg {
+    opacity: .5;
+}
+
+.text-arrow.hidden {
+    opacity: 1;
+}
+
+.text-arrow.hidden svg {
+    opacity: 0;
+}
+
 
 .project-card {
     border: 2px solid var(--primary-black);
@@ -551,6 +737,7 @@ header #logo-slogan h2 {
 
 #projects .mac-body {
     min-height: 320px;
+    font-size: 17px;
 }
 
 #projects .mac-body {
@@ -566,14 +753,6 @@ header #logo-slogan h2 {
 
 #projects .row p {
     max-width: 400px;
-}
-
-#about .mac-body .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
 }
 
 #projects .underline {
@@ -599,22 +778,39 @@ header #logo-slogan h2 {
     width: 25px;
     height: 25px;
     border: 2px solid var(--primary-black);
-    background-color: #6CE5E8;
+    background-color: var(--mac-header);
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#projects .hidden {
+#projects .mac-window.hidden {
     display: none;
 }
 
-#projects .mac-body {
-    background: linear-gradient(120deg, #9DDFED, #FACDEA);
+#project-selection {
+    display: none;
 }
 
+
+#projects .mac-body {
+    background: linear-gradient(120deg, var(--mac-focused-window-from), var(--mac-focused-window-to));
+}
+
+.root.night #projects img {
+    filter: sepia(100%);
+}
+
+
+
 /* About Page */
+
+.root.night #about img {
+    filter: sepia(100%);
+}
+
+
 #about {
     display: flex;
     justify-content: center;
@@ -648,7 +844,7 @@ header #logo-slogan h2 {
 #about-window .mac-body {
     min-height: fit-content;
     padding: 10px;
-    background: linear-gradient(120deg, #9DDFED, #FACDEA);
+    background: linear-gradient(120deg, var(--mac-focused-window-from), var(--mac-focused-window-to));
 }
 
 #terminal-window {
@@ -673,6 +869,15 @@ header #logo-slogan h2 {
 #about-window .mac-body :first-child p {
     margin-left: 10px;
 }
+
+#about .mac-body .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 
 
 #terminal-window .mac-body {
@@ -738,6 +943,7 @@ header #logo-slogan h2 {
     margin-bottom: 10px;
     border: 2px solid var(--primary-black);
     background-color: var(--secondary-orange);
+    color: var(--input-text);
     border-radius: 7px;
 }
 
@@ -749,8 +955,14 @@ header #logo-slogan h2 {
     margin-top: 2px;
     border: 2px solid var(--primary-black);
     background-color: var(--secondary-orange);
+    color: var(--input-text);
     border-radius: 7px;
 }
+
+textarea:focus, input:focus { 
+    outline: 2px solid var(--primary-orange);
+}
+
 
 #contact-window form button {
     height: 25px;
@@ -758,6 +970,7 @@ header #logo-slogan h2 {
     margin-bottom: 10px;
     border: 2px solid var(--primary-black);
     background-color: var(--secondary-orange);
+    color: var(--input-text);
     border-radius: 7px;
 }
 
@@ -766,9 +979,7 @@ header #logo-slogan h2 {
     background-color: var(--primary-orange);
 }
 
-#contact-window  {
-    background-color: red;
-}
+
 
 #socials-window {
     max-width: 100px;
@@ -784,11 +995,11 @@ header #logo-slogan h2 {
 }
 
 #socials-window .mac-body a:hover svg {
-    color: grey;
+    color: var(--socials-hover);
 }
 
 #socials-window .mac-body svg {
-    color: black;
+    color: var(--socials-color);
     width: 200px;
 } 
 
@@ -840,7 +1051,37 @@ header #logo-slogan h2 {
     flex-wrap: wrap-reverse;
 }
 
+
+.preload {
+    opacity: 0;
+    display: none;
+}
+
+/* IPAD Styles */
 @media (max-width: 804px) {
+
+    #projects .section-container {
+        margin-bottom: 50px;
+    }
+
+    #projects .section-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #project-selection-desktop {
+        display: none;
+    }
+
+    #project-selection {
+        display: flex;
+    }
+
+    #projects-wrapper {
+        margin: 10px;
+    }
 
     .nav-fixed {
         padding-left: 30px;
@@ -898,8 +1139,27 @@ header #logo-slogan h2 {
 
 }
 
-
+/* Phone Breakpoints */
 @media (max-width: 500px) {
+
+    #home-contact .text-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header #logo-slogan :nth-child(2) {
+        display: inline;
+        width: 100vw;
+    }
+    
+    header #logo-slogan :nth-child(1) {
+        display: none;
+    }
+    
+    #project-selection > h3 {
+        display: none;
+    }
 
     #project-3 .mac-body :last-child img {
         width: 80px;
@@ -937,6 +1197,7 @@ header #logo-slogan h2 {
     
 }
 
+/* Tiny Screen Breakpoints */
 @media (max-width: 350px) {
 
     .project-card {
@@ -971,3 +1232,9 @@ header #logo-slogan h2 {
     }
 }
 
+/* Large Styles */
+@media (max-width: 1040px) {
+    #project-selection-desktop {
+        top: 110px;
+    }
+}
