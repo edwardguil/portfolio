@@ -111,12 +111,12 @@ body {
 
 h1 {
     font-weight: bold;
-    font-size: 3.5rem;
+    font-size: 2rem;
 }
 
 h2 {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 p {
@@ -131,7 +131,7 @@ nav {
     align-items: center;
     position: fixed;
     padding: 5px 0px 5px 0px;
-    height: 100px;
+    height: 60px;
     top: 0;
     width: 100vw;
     background-color: var(--primary-white);
@@ -176,7 +176,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--primary-black);
 }
@@ -223,8 +223,8 @@ nav a {
     display: flex;
     align-items: center;
     cursor: pointer;
-    width: 54px;
-    height: 40px;
+    width: 45px;
+    height: 35px;
     position: relative;
 }
 
@@ -251,7 +251,7 @@ nav a {
 }
 
 #nav-toggle:checked ~ .burger .burger-line:nth-child(1) {
-    transform: translateY(15px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
 }
 
 #nav-toggle:checked ~ .burger .burger-line:nth-child(2) {
@@ -272,24 +272,24 @@ nav a {
 .slider {
     display: flex;
     align-items: center;
-    width: 100px;
+    width: 90px;
     height: 30px;
     background-color: var(--secondary-orange);
     border-radius: 40px;
     position: relative;
     border: .1rem solid var(--primary-black);
-    margin-right: 18px;
+    margin-right: 10px;
 }
 
 .slider p {
-    padding-left: 50px;
+    padding-left: 45px;
     transition: all 0.3s ease-in-out;
     font-size: 1.3rem;
 }
 
 
 .slider.nightmode p {
-    padding-left: 5px;
+    padding-left: 7px;
 }
   
 .ball {
@@ -302,15 +302,16 @@ nav a {
     border: .1rem solid var(--primary-black);
 }
 
+
 .slider .ball {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     cursor: pointer;
-    left: -22px;
+    left: -10px;
     transition: all 0.4s ease-in-out;
 }
 
@@ -340,8 +341,8 @@ header {
 }
 
 header #logo-slogan {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 100%;
     max-width: 1200px;
 }
@@ -352,7 +353,7 @@ header #logo-slogan h2 {
 }
 
 :root.night header #logo-slogan :first-child {
-    width: 100%;
+    width: 98%;
     content: url('/images/eg-night.svg');
 }
 
@@ -438,7 +439,7 @@ header #logo-slogan :nth-child(2) {
 
 .section-header h2 {
     display: inline-block;
-    font-size: 5rem;
+    font-size: 3rem;
     color: var(--primary-black);
 }
 
@@ -657,24 +658,30 @@ header #logo-slogan :nth-child(2) {
 }
 
 .section-body h2 {
-    font-size: 4rem;
+    font-size: 2.5rem;
     margin: 10px;
 }
 
 #home-contact .text-button {
+    flex-direction: row;
+}
+
+/* #home-contact .text-button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: calc(100% + 30px);
 }
 
 #home-contact .text-button h2 {
     display: inline;
 }
+*/
 
 #home-contact .text-button svg {
     width: 40px;
     height: 40px;
-}
+} 
 
 /* Projects Page */
 #projects {
@@ -943,7 +950,7 @@ header #logo-slogan :nth-child(2) {
 #contact .section-header {
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
+    margin-bottom: 51px;
     max-height: 90px;
 }
 
@@ -1298,8 +1305,53 @@ textarea:focus, input:focus {
 
 /* Large Screen Breakpoints */
 @media (min-width: 1040px) {
+
+    h1 {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+    
+    p {
+        font-weight: normal;
+        font-size: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 3rem;
+    }
+
+    .section-body h2 {
+        font-size: 3rem;
+    }
     .nav-links a {
-        font-size: 3.5rem;
+        font-size: 3rem;
+    }
+
+    
+    nav {
+        height: 70px;
+    }
+
+
+
+    .slider {
+        width: 110px;
+        margin-right: 25px;
+    }
+
+    .slider .ball {
+        width: 65px;
+        height: 65px;
+        left: -22px;
+    }
+
+    .slider p {
+        padding-left: 55px;
     }
 
 

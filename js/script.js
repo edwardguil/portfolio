@@ -32,7 +32,7 @@ function slideBall(pageLoad=false) {
         document.documentElement.classList.remove("night");
         localStorage.setItem('dark', 'false');
         slider.classList.remove("nightmode");
-        ball.style.left = "-22px"
+        ball.style.left = "-15px"
         setTimeout(() => {
             text.innerHTML = "day"
         }, 120);
