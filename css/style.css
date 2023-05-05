@@ -92,6 +92,11 @@
 }
 
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--primary-white);
     color: var(--primary-black);
@@ -641,7 +646,7 @@ header #logo-slogan :nth-child(2) {
 
 #home-contact .mac-window {
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
     min-width: 280px;
     height: 100%;
     margin-bottom: 30px;
@@ -676,7 +681,7 @@ header #logo-slogan :nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 #projects .section-container {
@@ -866,24 +871,27 @@ header #logo-slogan :nth-child(2) {
     filter: sepia(100%);
 }
 
-
 #about {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 450px;
-    min-height: 80vh;
-    height: 85vh;
+    min-height: fit-content;
     margin-top: 81px;
+    margin-bottom: 81px;
+}
+
+#terminal-window {
+    display: none;
+}
+
+#about-window {
+    width: 100%;
+    left: 0px;
 }
 
 #about .section-header {
     display: flex;
     justify-content: center;
-}
-
-#about .section-body {
-    width: 100%;
 }
 
 #about .windows-stacked {
@@ -894,17 +902,6 @@ header #logo-slogan :nth-child(2) {
     position: relative;
 }
 
-#about .windows-stacked :nth-child(2) {
-    left: 4%
-}
-
-#about-window {
-    width: 90%;
-    position: absolute;
-    top: 0;
-    min-height: fit-content;
-    height: fit-content;
-}
 
 #about-window .mac-body {
     min-height: fit-content;
@@ -912,22 +909,9 @@ header #logo-slogan :nth-child(2) {
     background: linear-gradient(120deg, var(--mac-focused-window-from), var(--mac-focused-window-to));
 }
 
+
 #about-window .mac-body :nth-child(2) {
     flex-direction: column-reverse;
-}
-
-#terminal-window {
-    top: 5%;
-    left: 0;
-    position: absolute;
-    max-height: 70%;
-    max-width: 400px;
-    min-width: 280px;
-    max-height: 220px;
-}
-
-#terminal-window {
-    opacity: 0;
 }
 
 #about-quote {
@@ -949,12 +933,6 @@ header #logo-slogan :nth-child(2) {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-}
-
-
-
-#terminal-window .mac-body {
-    padding-left: 10px;
 }
 
 .row {
@@ -1163,6 +1141,10 @@ textarea:focus, input:focus {
         flex-direction: row;
     }
 
+    #home-about .mac-window {
+        max-width: 500px;
+    }
+
     #home-projects {
         max-height: 100%;
     }
@@ -1180,16 +1162,33 @@ textarea:focus, input:focus {
     }
 
     #terminal-window {
-        opacity: 1;
+        display: inline;
+        position: absolute;
+        height: 330px;
+        top: 10%;
+        left: -10px;
+    }
+    
+    #terminal-window .mac-body {
+        height: 287px;
     }
 
-    #home-about .section-body {
-        flex-direction: row;
-    }    
+    #terminal-window .mac-body p {
+        margin: 0px;
+    }
+    
+    #terminal-window .mac-body {
+        padding-left: 10px;
+    }
 
+    #about-window {
+        max-width: 500px;
+    }
+
+/* 
     #about .windows-stacked :nth-child(2) {
         left: 15%
-    }
+    } */
 
     .windows-stacked :nth-child(1) {
         left: 10%
@@ -1210,21 +1209,24 @@ textarea:focus, input:focus {
 
 /* Laptop Breakpoint */
 @media (min-width: 804px) {
-    .nav-links {
-        display: flex;
+    #home-about .section-body {
         flex-direction: row;
-        position: relative;
-        align-items: center;
-        padding-left: 5px;
-        top: 0;
-        left: 0;
-        max-height: 100%;
-        max-width: 1200px;
-        width: fit-content;
-        border: none;
-        transition: none;
-        overflow: visible;
+        justify-content: space-around;
     }
+
+    #home-contact {
+        height: 80vh;
+        margin-bottom: 0;
+    }
+
+    #home-contact .section-body {
+        height: 50%;
+    }
+
+    #home-contact .mac-window {
+        height: 60%
+    }
+
 
     #projects .section-container {
         margin-bottom: 0px;
@@ -1250,6 +1252,11 @@ textarea:focus, input:focus {
         width: 280px;
         height: 200px;
     }
+    
+    #project-selection-desktop svg {
+        width: 200px;
+        height: 200px;
+    }
 
     #project-selection {
         display: none;
@@ -1259,12 +1266,12 @@ textarea:focus, input:focus {
         margin-left: 300px;
     }
 
-    .nav-fixed {
-        padding-right: 5px;
-        padding-left: 5px;
+    #about-window {
+        max-width: 80%;
+        margin-left: 100px;
     }
 
-    #about .mac-body .row {
+    #about-window .mac-body .row {
         flex-direction: row;
     }
 
@@ -1272,9 +1279,6 @@ textarea:focus, input:focus {
         flex-direction: row;
     }
 
-    .burger {
-        display: none;
-    }
 
     #contact .section-body {
         flex-direction: row;
@@ -1294,6 +1298,35 @@ textarea:focus, input:focus {
 
 /* Large Screen Breakpoints */
 @media (min-width: 1040px) {
+    .nav-links a {
+        font-size: 3.5rem;
+    }
+
+
+    .burger {
+        display: none;
+    }
+
+    .nav-fixed {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
+        padding-left: 5px;
+        top: 0;
+        left: 0;
+        max-height: 100%;
+        max-width: 1200px;
+        width: fit-content;
+        border: none;
+        transition: none;
+        overflow: visible;
+    }
 
     #project-selection-desktop {
         top: 75px;
