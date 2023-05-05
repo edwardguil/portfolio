@@ -17,7 +17,7 @@ function slideBall(pageLoad=false) {
             slider.classList.add("nightmode");
             sun.classList.toggle("hidden");
             moon.classList.toggle("hidden");
-            ball.style.left = "50px";
+            ball.style.left = "60px";
             text.innerHTML = "night"
         }
         return;
@@ -32,7 +32,7 @@ function slideBall(pageLoad=false) {
         document.documentElement.classList.remove("night");
         localStorage.setItem('dark', 'false');
         slider.classList.remove("nightmode");
-        ball.style.left = "-5px"
+        ball.style.left = "-22px"
         setTimeout(() => {
             text.innerHTML = "day"
         }, 120);
@@ -41,7 +41,7 @@ function slideBall(pageLoad=false) {
         document.documentElement.classList.add("night");
         localStorage.setItem('dark', 'true');
         slider.classList.add("nightmode");
-        ball.style.left = "50px";
+        ball.style.left = "60px";
         setTimeout(() => {
             text.innerHTML = "night"
         }, 120);

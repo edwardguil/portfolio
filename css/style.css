@@ -104,12 +104,19 @@ body {
 }
 
 
-h1, a {
+h1 {
     font-weight: bold;
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 p {
     font-weight: normal;
+    font-size: 1.5rem;
 }
 
 
@@ -119,8 +126,9 @@ nav {
     align-items: center;
     position: fixed;
     padding: 5px 0px 5px 0px;
+    height: 100px;
     top: 0;
-    width: 100%;
+    width: 100vw;
     background-color: var(--primary-white);
     z-index: 999;
     border-style: solid;
@@ -131,23 +139,40 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
     width: 100%;
-    max-width: 1200px;
-    padding-right: 50px;
-    padding-left: 50px;
-    min-height: 65px;
+    max-width: 1400px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 100%;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    position: absolute;
+    padding-left: 30px;
+    top: 100%;
+    left: -3px;
+    width: 100%;
+    background-color: var(--primary-white);
+    z-index: 1000;
+    box-sizing: border-box;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height .3s ease-in-out;
+    border-left: 0.188rem solid var(--primary-black);
+    border-bottom: 0.188rem solid var(--primary-black);
 }
+
 
 nav a {
     text-decoration: none;
-    font-size: 40px;
+    font-size: 4rem;
+    font-weight: bold;
     color: var(--primary-black);
 }
 
@@ -190,18 +215,19 @@ nav a {
 
 /* Hamburger menu styles */
 .burger {
-    display: none;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    width: 40px;
-    height: 30px;
+    width: 54px;
+    height: 40px;
     position: relative;
 }
 
 .burger-line {
     position: absolute;
-    border-radius: 4px;
+    border-radius: 0.2rem;
     width: 100%;
-    height: 5px;
+    height: 0.313rem;
     background-color: var(--primary-orange);
     transition: all 0.3s;
 }
@@ -220,7 +246,7 @@ nav a {
 }
 
 #nav-toggle:checked ~ .burger .burger-line:nth-child(1) {
-    transform: translateY(14px) rotate(45deg);
+    transform: translateY(15px) rotate(45deg);
 }
 
 #nav-toggle:checked ~ .burger .burger-line:nth-child(2) {
@@ -228,7 +254,11 @@ nav a {
 }
 
 #nav-toggle:checked ~ .burger .burger-line:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-20px) rotate(-45deg);
+}
+
+#nav-toggle:checked ~ .nav-links {
+    max-height: 340px;
 }
 
 
@@ -237,18 +267,21 @@ nav a {
 .slider {
     display: flex;
     align-items: center;
-    width: 90px;
+    width: 100px;
     height: 30px;
     background-color: var(--secondary-orange);
     border-radius: 40px;
     position: relative;
-    border: 2px solid var(--primary-black);
+    border: .1rem solid var(--primary-black);
+    margin-right: 18px;
 }
 
 .slider p {
     padding-left: 50px;
     transition: all 0.3s ease-in-out;
+    font-size: 1.3rem;
 }
+
 
 .slider.nightmode p {
     padding-left: 5px;
@@ -261,23 +294,24 @@ nav a {
     min-height: 12px;
     border-radius: 50%;
     background-color: var(--slider-ball);
-    border: 2px solid var(--primary-black);
+    border: .1rem solid var(--primary-black);
 }
 
 .slider .ball {
-    width: 45px;
-    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
     position: absolute;
     cursor: pointer;
-    left: -5px;
-    transition: all 0.3s ease-in-out;
+    left: -22px;
+    transition: all 0.4s ease-in-out;
 }
 
 
 .ball svg, .ball img {
-    position: absolute;
-    top: 2px;
-    left: 2px;
+    width: 80%;
     opacity: 1;
     transition: opacity .3s linear;
 }
@@ -288,6 +322,7 @@ nav a {
 
 .ball img.hidden {
     opacity: 0;
+    display: none;
 }
 
 /* Home Header styles */
@@ -325,8 +360,13 @@ header #logo-slogan img {
     width: auto;
 }
 
-header #logo-slogan :nth-child(2) {
+header #logo-slogan :nth-child(1) {
     display: none;
+}
+
+header #logo-slogan :nth-child(2) {
+    display: inline;
+    width: 100vw;
 }
 
 #arrow-down {
@@ -354,6 +394,7 @@ header #logo-slogan :nth-child(2) {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    max-height: 20%;
 }
 
 .section-container {
@@ -362,12 +403,12 @@ header #logo-slogan :nth-child(2) {
     align-items: center;
     justify-content: flex-start;
     height: 100%;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;  
 }
 
 .section-header {
-    width: 100%;
+    width: 90%;
 }
 
 .section-header .underline {
@@ -392,15 +433,16 @@ header #logo-slogan :nth-child(2) {
 
 .section-header h2 {
     display: inline-block;
-    font-size: 50px;
+    font-size: 5rem;
     color: var(--primary-black);
 }
+
 
 .section-body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
     height: 70%;
     max-width: 1200px;
 }
@@ -421,27 +463,27 @@ header #logo-slogan :nth-child(2) {
 
 .windows-stacked :nth-child(1) {
     z-index: 2;
-    left: 10%
+    left: 5%
 }
 
 .windows-stacked :nth-child(2) {
     z-index: 3;
     top: -74%;
-    left: 15%
+    left: 10%
 
 }
 
 .windows-stacked :nth-child(3) {
     z-index: 4;
     top: -148%;
-    left: 20%
+    left: 15%
 }
 
 .mac-window {
     min-width: 250px;
-    width: 70%;
+    width: 81%;
     height: 80%;
-    border: 2px solid var(--primary-black);
+    border: 0.2rem solid var(--primary-black);
     border-radius: 10px;
     opacity: 1;
     display: flex;
@@ -452,16 +494,18 @@ header #logo-slogan :nth-child(2) {
 .mac-header {
     display: flex;
     background-color: var(--mac-header);
-    border-bottom: 2px solid var(--primary-black);
+    border-bottom: 0.2rem solid var(--primary-black);
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     justify-content: start;
     align-items: center;
-    height: 30px
+    height: 40px
 }
+
   
 .mac-header .ball {
     margin-left: 7px;
+    border: 0.2rem solid black;
 }
 
 .mac-header :nth-child(1) {
@@ -495,7 +539,7 @@ header #logo-slogan :nth-child(2) {
     justify-content: center;
     align-items: center;
     height: 85vh;
-    min-height: 600px;
+    min-height: 800px;
 }
 
 #home-about .section-header {
@@ -503,13 +547,14 @@ header #logo-slogan :nth-child(2) {
 }
 
 #home-about .section-body {
+    flex-direction: column;
     justify-content: space-around;
     min-height: 300px;
 }
 
 
 #home-about .mac-window {
-    width: 50%;
+    width: 100%;
     min-width: 280px;
     max-height: 300px;
 }
@@ -563,11 +608,11 @@ header #logo-slogan :nth-child(2) {
     font-size: 23px;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 35px;
+    width: 124px;
+    height: 55px;
     color: var(--enter-button-text);
     background-color: var(--enter-button);
-    border: 3px solid var(--enter-button-border);
+    border: 0.2rem solid var(--enter-button-border);
     border-radius: 4px;
 }
 
@@ -577,8 +622,9 @@ header #logo-slogan :nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    min-height: 450px;
+    height: 60vh;
+    min-height: 700px;
+    margin-bottom: 80px;
 }
 
 #home-contact .section-header {
@@ -590,14 +636,15 @@ header #logo-slogan :nth-child(2) {
     flex-direction: column;
     justify-content: space-between;
     height: 43%;
-    min-height: 300px;
+    min-height: 500px;
 }
 
 #home-contact .mac-window {
-    width: 50%;
+    width: 100%;
     max-width: 400px;
     min-width: 280px;
-    max-height: 220px;
+    height: 100%;
+    margin-bottom: 30px;
 }
 
 #home-contact .mac-body {
@@ -605,12 +652,14 @@ header #logo-slogan :nth-child(2) {
 }
 
 .section-body h2 {
-    font-size: 40px;
+    font-size: 4rem;
     margin: 10px;
 }
 
 #home-contact .text-button {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #home-contact .text-button h2 {
@@ -630,27 +679,24 @@ header #logo-slogan :nth-child(2) {
     margin-top: 80px;
 }
 
+#projects .section-container {
+    margin-bottom: 50px;
+}
+
 #projects .section-body {
-    display: inline-block;
-    position: relative;
-    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #projects-wrapper {
     flex-grow: 1;
-    margin-left: 300px;
+    margin: 10px;
     float: right;
     vertical-align: top;
 }
 
-#project-selection-desktop {
-    display: inline-block;
-    position: absolute;
-    top: 75px;
-    vertical-align: top;
-    width: 280px;
-    height: 200px;
-}
 
 #projects .section-header h2 {
     margin-top: 40px;
@@ -664,6 +710,19 @@ header #logo-slogan :nth-child(2) {
     align-items: center;
     min-width: 300px;
     font-size: 20px;
+}
+
+#project-selection-desktop {
+    display: none;
+}
+
+#project-selection > h3 {
+    display: none;
+}
+
+
+#project-3 .mac-body :last-child img {
+    width: 80px;
 }
 
 .text-box {
@@ -718,7 +777,8 @@ header #logo-slogan :nth-child(2) {
     border-radius: 10px;
     width: 120px;
     height: 140px;
-    margin: 8px;
+    margin: 0px;
+    margin-top: 15px;
     padding-top: 16px;
     position: relative;
     display: flex;
@@ -789,10 +849,6 @@ header #logo-slogan :nth-child(2) {
     display: none;
 }
 
-#project-selection {
-    display: none;
-}
-
 
 #projects .mac-body {
     background: linear-gradient(120deg, var(--mac-focused-window-from), var(--mac-focused-window-to));
@@ -826,6 +882,10 @@ header #logo-slogan :nth-child(2) {
     justify-content: center;
 }
 
+#about .section-body {
+    width: 100%;
+}
+
 #about .windows-stacked {
     display: flex;
     flex-direction: column;
@@ -834,7 +894,12 @@ header #logo-slogan :nth-child(2) {
     position: relative;
 }
 
+#about .windows-stacked :nth-child(2) {
+    left: 4%
+}
+
 #about-window {
+    width: 90%;
     position: absolute;
     top: 0;
     min-height: fit-content;
@@ -847,6 +912,10 @@ header #logo-slogan :nth-child(2) {
     background: linear-gradient(120deg, var(--mac-focused-window-from), var(--mac-focused-window-to));
 }
 
+#about-window .mac-body :nth-child(2) {
+    flex-direction: column-reverse;
+}
+
 #terminal-window {
     top: 5%;
     left: 0;
@@ -855,6 +924,10 @@ header #logo-slogan :nth-child(2) {
     max-width: 400px;
     min-width: 280px;
     max-height: 220px;
+}
+
+#terminal-window {
+    opacity: 0;
 }
 
 #about-quote {
@@ -872,7 +945,7 @@ header #logo-slogan :nth-child(2) {
 
 #about .mac-body .row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
@@ -892,24 +965,22 @@ header #logo-slogan :nth-child(2) {
 #contact .section-header {
     display: flex;
     justify-content: center;
+    margin-bottom: 120px;
+    max-height: 90px;
 }
 
 #contact {
-    min-height: 700px;
+    min-height: 800px;
     height: 85vh;
     margin-top: 81px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#contact .section-header {
-    margin-bottom: 50px;
-    max-height: 90px;
-}
-
 #contact .section-container {
-    min-height: 600px;
+    min-height: 700px;
 }
 
 #contact-window {
@@ -922,6 +993,7 @@ header #logo-slogan :nth-child(2) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 }
 
 #contact-window form {
@@ -932,43 +1004,55 @@ header #logo-slogan :nth-child(2) {
     height: 80%
 }
 
+
+#contact-window {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 #contact-window form label {
     margin-left: 3px;
 }
 
 #contact-window form input {
     width: 100%;
-    height: 25px;
+    height: 30px;
+    font-size: 1.5rem;
     margin-top: 2px;
     margin-bottom: 10px;
-    border: 2px solid var(--primary-black);
+    border: 0.13rem solid var(--primary-black);
     background-color: var(--secondary-orange);
     color: var(--input-text);
-    border-radius: 7px;
+    border-radius:  0.2rem;
 }
 
 #contact-window form textarea {
     resize: none;
     width: 100%;
+    font-size: 1.5rem;
     height: 60px;
     margin-bottom: 10px;
     margin-top: 2px;
-    border: 2px solid var(--primary-black);
+    border: 0.13rem solid var(--primary-black);
     background-color: var(--secondary-orange);
     color: var(--input-text);
-    border-radius: 7px;
+    border-radius:  0.2rem;
 }
 
 textarea:focus, input:focus { 
-    outline: 2px solid var(--primary-orange);
+    outline: 0.13rem solid var(--primary-orange);
 }
 
 
 #contact-window form button {
-    height: 25px;
+    height: 45px;
+    width: 100px;
     margin-top: 2px;
     margin-bottom: 10px;
-    border: 2px solid var(--primary-black);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 0.13rem solid var(--primary-black);
     background-color: var(--secondary-orange);
     color: var(--input-text);
     border-radius: 7px;
@@ -979,12 +1063,11 @@ textarea:focus, input:focus {
     background-color: var(--primary-orange);
 }
 
-
-
 #socials-window {
     max-width: 100px;
     max-height: 200px;
-    margin-left: 30px;
+    margin-left: 0px;
+    margin-top: 30px;
 }
 
 #socials-window .mac-body {
@@ -1005,6 +1088,7 @@ textarea:focus, input:focus {
 
 
 #contact .section-body {
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -1057,184 +1141,161 @@ textarea:focus, input:focus {
     display: none;
 }
 
-/* IPAD Styles */
-@media (max-width: 804px) {
 
-    #projects .section-container {
-        margin-bottom: 50px;
-    }
 
-    #projects .section-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #project-selection-desktop {
-        display: none;
-    }
-
-    #project-selection {
-        display: flex;
-    }
-
-    #projects-wrapper {
-        margin: 10px;
-    }
-
-    .nav-fixed {
-        padding-left: 30px;
-        padding-right: 30px;
+/* Phone Breakpoints */
+@media (min-width: 350px) {
+    .section-body {
+        width: 90%;
     }
 
     .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        position: absolute;
         padding-left: 30px;
-        top: 100%;
-        left: -3px;
-        width: 100%;
-        background-color: var(--primary-white);
-        z-index: 1000;
-        box-sizing: border-box;
-        max-height: 0; 
-        overflow: hidden;
-        transition: max-height .3s ease-in-out;
-        border-left: 3px solid var(--primary-black);
-        border-bottom: 3px solid var(--primary-black);
     }
 
-    #about .mac-body .row {
-        flex-direction: column;
-    }
-
-    #about-window .mac-body :nth-child(2) {
-        flex-direction: column-reverse;
-    }
-
-    .burger {
-        display: flex;
-        align-items: center;
-    }
-
-    #nav-toggle:checked ~ .nav-links {
-        max-height: 240px;
-    }
-
-    #contact .section-body {
-        flex-direction: column;
-    }
-
-    #contact #socials-window {
-        margin-left: 0;
-        margin-top: 30px;
-    }
-
-    #contact-window .mac-body {
-        padding-top: 10px;
-    }
 
 }
 
-/* Phone Breakpoints */
-@media (max-width: 500px) {
 
+/* IPAD Breakpoints */
+@media (min-width: 500px) {
     #home-contact .text-button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
     }
 
+    #home-projects {
+        max-height: 100%;
+    }
+    
     header #logo-slogan :nth-child(2) {
-        display: inline;
-        width: 100vw;
-    }
-    
-    header #logo-slogan :nth-child(1) {
-        display: none;
-    }
-    
-    #project-selection > h3 {
         display: none;
     }
 
-    #project-3 .mac-body :last-child img {
-        width: 80px;
+    header #logo-slogan :nth-child(1) {
+        display: block;
+    }
+
+    #project-selection > h3 {
+        display: block;
     }
 
     #terminal-window {
-        opacity: 0;
+        opacity: 1;
     }
 
     #home-about .section-body {
-      flex-direction: column;
+        flex-direction: row;
     }    
 
-    .third {
-      flex-grow:0;
-      flex-basis:50%;
-    }
-
-    .windows-stacked :nth-child(1) {
-        left: 5%
-    }
-
-    .windows-stacked :nth-child(2) {
-        left: 10%
-    
-    }
-    
-    .windows-stacked :nth-child(3) {
+    #about .windows-stacked :nth-child(2) {
         left: 15%
     }
 
-    #about .section-body {
-        width: 100%;
+    .windows-stacked :nth-child(1) {
+        left: 10%
     }
-    
+
+    .windows-stacked :nth-child(2) {
+        left: 15%
+
+    }
+
+    .windows-stacked :nth-child(3) {
+        left: 20%
+    }
+
+
+
 }
 
-/* Tiny Screen Breakpoints */
-@media (max-width: 350px) {
-
-    .project-card {
-        margin: 0px;
-        margin-top: 15px;
+/* Laptop Breakpoint */
+@media (min-width: 804px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
+        padding-left: 5px;
+        top: 0;
+        left: 0;
+        max-height: 100%;
+        max-width: 1200px;
+        width: fit-content;
+        border: none;
+        transition: none;
+        overflow: visible;
     }
 
-    .section-body {
-        width: 100%;
+    #projects .section-container {
+        margin-bottom: 0px;
+    }
+
+    #projects .section-body {
+        display: inline-block;
+        position: relative;
+        max-width: 1000px;
+    }
+
+    #projects .section-body {
+        display: inline-block;
+        position: relative;
+        max-width: 1000px;
+    }
+
+    #project-selection-desktop {
+        display: inline-block;
+        position: absolute;
+        top: 110px;
+        vertical-align: top;
+        width: 280px;
+        height: 200px;
+    }
+
+    #project-selection {
+        display: none;
+    }
+
+    #projects-wrapper {
+        margin-left: 300px;
     }
 
     .nav-fixed {
-        padding-left: 5px;
         padding-right: 5px;
-    }
-
-    .nav-links {
         padding-left: 5px;
     }
 
-    .windows-stacked :nth-child(1) {
-        left: 0%
+    #about .mac-body .row {
+        flex-direction: row;
     }
-    
-    .windows-stacked :nth-child(2) {
-        left: 3%
-    
+
+    #about-window .mac-body :nth-child(2) {
+        flex-direction: row;
     }
-    
-    .windows-stacked :nth-child(3) {
-        left: 5%
+
+    .burger {
+        display: none;
     }
+
+    #contact .section-body {
+        flex-direction: row;
+    }
+
+    
+    #contact #socials-window {
+        margin-left: 30px;
+        margin-top: 0px;
+    }
+
+    #contact-window .mac-body {
+        padding-top: 0px;
+    }
+
 }
 
-/* Large Styles */
-@media (max-width: 1040px) {
+/* Large Screen Breakpoints */
+@media (min-width: 1040px) {
+
     #project-selection-desktop {
-        top: 110px;
+        top: 75px;
     }
 }
