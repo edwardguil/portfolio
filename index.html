@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script> 
 </head>
-<body onload="passiveAnimations()">
+<body id="home-page" onload="passiveAnimations()">
     <!-- Navbar -->
     <nav>
         <div class="nav-fixed">
@@ -63,6 +63,13 @@
             </div>
         </div>
     </nav>
+    <!-- Page Index -->
+    <div id="page-index">
+        <div class="ball active" onclick="scrollToSection(0)"></div>
+        <div class="ball" onclick="scrollToSection(1)"></div>
+        <div class="ball" onclick="scrollToSection(2)"></div>
+        <div class="ball" onclick="scrollToSection(3)"></div>
+    </div>
     <!-- Header -->
     <header>
         <div id="logo-slogan">
@@ -72,7 +79,7 @@
             <img class="preload" src="images/eg-stacked-night.png" alt="edward guilfoyle text"/>
             <h2>machine learning engineer</h2>
         </div>
-        <div id="arrow-down">
+        <div id="arrow-down" onclick="scrollToSection(1)">
             <svg version="1.0" alt="down arrow" xmlns="http://www.w3.org/2000/svg" width="75.000000pt" height="95.000000pt" viewBox="0 0 75.000000 95.000000"preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,95.000000) scale(0.100000,-0.100000)"
             fill="currentColor" stroke="none"> <path d="M0 816 l0 -126 181 -147 c100 -82 187 -148 194 -147 6 1 91 66 188 145 l176 144 1 128 0 128 -137 -114 c-76 -62 -159 -130 -185 -151 l-47 -37 -138 113 c-76 62 -159 131 -185 152 l-48 38 0 -126z"/> <path d="M0 437 l0 -123 186 -152 c165 -135 189 -151 203 -139 9 8 89 74 179 147 90 73 166 138 168 144 3 7 3 64 2 128 l-3 116 -81 -66 c-45 -37 -127 -104 -181 -149 l-100 -81 -183 149 c-100 82 -184 149 -186 149 -2 0 -4 -55 -4 -123z"/> </g>
             </svg>
@@ -202,7 +209,6 @@
                         <h2>get in touch
                         </h2>
                         <svg alt="arrow circled" fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 93.934 93.934" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M46.967,0C21.029,0,0,21.028,0,46.967c0,25.939,21.029,46.967,46.967,46.967c25.939,0,46.967-21.027,46.967-46.967 C93.934,21.027,72.906,0,46.967,0z M55.953,66.295V54.3H18.652V39.634h37.303V27.639l19.326,19.328L55.953,66.295z"></path> </g> </g></svg>
-
                         </div>
                     </a>
                 </div>

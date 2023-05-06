@@ -132,7 +132,7 @@ nav {
     position: fixed;
     padding: 5px 0px 5px 0px;
     height: 60px;
-    top: 0;
+    top: -4px;
     width: 100vw;
     background-color: var(--primary-white);
     z-index: 999;
@@ -277,7 +277,7 @@ nav a {
     background-color: var(--secondary-orange);
     border-radius: 40px;
     position: relative;
-    border: .1rem solid var(--primary-black);
+    border: .13rem solid var(--primary-black);
     margin-right: 10px;
 }
 
@@ -299,7 +299,7 @@ nav a {
     min-height: 12px;
     border-radius: 50%;
     background-color: var(--slider-ball);
-    border: .1rem solid var(--primary-black);
+    border: .13rem solid var(--primary-black);
 }
 
 
@@ -331,6 +331,49 @@ nav a {
     display: none;
 }
 
+/* Home Page Index Styles */
+#page-index {
+    display: none;
+    z-index: 998;
+    top: 40%;
+    left: 1%;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+}
+
+#page-index .ball {
+    width: 8px;
+    height: 8px;
+    min-width: 0px;
+    min-height: 0px;
+    background-color: var(--primary-white);
+    margin-bottom: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+#page-index .ball.active {
+    background-color: var(--primary-orange);
+    height: 17px;
+    width: 17px;
+}
+
+#page-index .ball:hover {
+    cursor: pointer;
+    background-color: var(--primary-orange);
+    height: 11px;
+    width: 11px;
+}
+
+#page-index .ball.active:hover {
+    height: 17px;
+    width: 17px;
+}
+
+#home-page .section-container {
+    margin-left: 10px;
+}
+
 /* Home Header styles */
 header {
     display: flex;
@@ -358,11 +401,12 @@ header #logo-slogan h2 {
 }
 
 :root.night header #logo-slogan :nth-child(2) {
-    width: 100%;
+    width: 95%;
     content: url('/images/eg-stacked-night.png');
 }
 
 header #logo-slogan img {
+    margin-left: 10px;
     width: auto;
 }
 
@@ -383,15 +427,16 @@ header #logo-slogan :nth-child(2) {
 }
 
 #arrow-down svg {
-    width: 75px; 
-    height: 75px;
-    color: var(--primary-black);
-    transition: all 2s ease-in-out;
-}
-
-#arrow-down.grow svg {
     width: 60px; 
     height: 60px;
+    color: var(--primary-black);
+    transition: all .5s ease-in-out;
+}
+
+#arrow-down:hover svg {
+    width: 75px; 
+    height: 75px;
+    cursor: pointer;
 } 
 
 /* Home Projects */
@@ -666,18 +711,6 @@ header #logo-slogan :nth-child(2) {
     flex-direction: row;
 }
 
-/* #home-contact .text-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: calc(100% + 30px);
-}
-
-#home-contact .text-button h2 {
-    display: inline;
-}
-*/
-
 #home-contact .text-button svg {
     width: 40px;
     height: 40px;
@@ -688,7 +721,7 @@ header #logo-slogan :nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 81px;
 }
 
 #projects .section-container {
@@ -783,12 +816,19 @@ header #logo-slogan :nth-child(2) {
     opacity: 0;
 }
 
+#projects .section-body a:hover {
+    color: var(--primary-orange);
+}
+
+#project-cards {
+    margin-bottom: 20px;
+}
 
 .project-card {
     border: 2px solid var(--primary-black);
     border-radius: 10px;
     width: 120px;
-    height: 140px;
+    height: 180px;
     margin: 0px;
     margin-top: 15px;
     padding-top: 16px;
@@ -798,6 +838,15 @@ header #logo-slogan :nth-child(2) {
     justify-content: space-around;
     align-items: center;
     text-align: center;
+}
+
+.project-card p {
+    font-size: 1.2rem;
+}
+
+.project-card svg {
+    width: 50px;
+    height: 50px;
 }
 
 #projects .mac-window {
@@ -1127,9 +1176,13 @@ textarea:focus, input:focus {
 }
 
 
-
 /* Phone Breakpoints */
 @media (min-width: 350px) {
+
+    #page-index {
+        display: flex;
+    }
+
     .section-body {
         width: 90%;
     }
@@ -1140,8 +1193,7 @@ textarea:focus, input:focus {
 
 
 }
-
-
+    
 /* IPAD Breakpoints */
 @media (min-width: 500px) {
     #home-contact .text-button {
@@ -1155,7 +1207,13 @@ textarea:focus, input:focus {
     #home-projects {
         max-height: 100%;
     }
+
+    header img {
+        margin-left: 20px;
+    }
     
+
+
     header #logo-slogan :nth-child(2) {
         display: none;
     }
@@ -1166,6 +1224,7 @@ textarea:focus, input:focus {
 
     #project-selection > h3 {
         display: block;
+        font-size: 1.8rem;
     }
 
     #terminal-window {
@@ -1192,10 +1251,6 @@ textarea:focus, input:focus {
         max-width: 500px;
     }
 
-/* 
-    #about .windows-stacked :nth-child(2) {
-        left: 15%
-    } */
 
     .windows-stacked :nth-child(1) {
         left: 10%
@@ -1232,45 +1287,6 @@ textarea:focus, input:focus {
 
     #home-contact .mac-window {
         height: 60%
-    }
-
-
-    #projects .section-container {
-        margin-bottom: 0px;
-    }
-
-    #projects .section-body {
-        display: inline-block;
-        position: relative;
-        max-width: 1000px;
-    }
-
-    #projects .section-body {
-        display: inline-block;
-        position: relative;
-        max-width: 1000px;
-    }
-
-    #project-selection-desktop {
-        display: inline-block;
-        position: absolute;
-        top: 110px;
-        vertical-align: top;
-        width: 280px;
-        height: 200px;
-    }
-    
-    #project-selection-desktop svg {
-        width: 200px;
-        height: 200px;
-    }
-
-    #project-selection {
-        display: none;
-    }
-
-    #projects-wrapper {
-        margin-left: 300px;
     }
 
     #about-window {
@@ -1322,7 +1338,7 @@ textarea:focus, input:focus {
     }
 
     .section-header h2 {
-        font-size: 3rem;
+        font-size: 3.6rem;
     }
 
     .section-body h2 {
@@ -1337,21 +1353,19 @@ textarea:focus, input:focus {
         height: 70px;
     }
 
-
-
     .slider {
-        width: 110px;
+        width: 90px;
         margin-right: 25px;
     }
 
     .slider .ball {
-        width: 65px;
-        height: 65px;
-        left: -22px;
+        width: 55px;
+        height: 55px;
+        left: -15px;
     }
 
     .slider p {
-        padding-left: 55px;
+        padding-left: 48px;
     }
 
 
@@ -1378,6 +1392,49 @@ textarea:focus, input:focus {
         border: none;
         transition: none;
         overflow: visible;
+    }
+
+    #project-selection-desktop {
+        display: inline-block;
+        position: absolute;
+        top: 110px;
+        vertical-align: top;
+        width: 320px;
+        height: 250px;
+    }
+
+    #project-selection-desktop {
+        white-space: nowrap;
+    }
+    
+    #project-selection-desktop svg {
+
+        width: 200px;
+        height: 50px;
+    }
+
+    #project-selection {
+        display: none;
+    }
+
+    #projects-wrapper {
+        margin-left: 350px;
+    }
+
+    #projects .section-container {
+        margin-bottom: 0px;
+    }
+
+    #projects .section-body {
+        display: inline-block;
+        position: relative;
+        max-width: 1000px;
+    }
+
+    #projects .section-body {
+        display: inline-block;
+        position: relative;
+        max-width: 1000px;
     }
 
     #project-selection-desktop {

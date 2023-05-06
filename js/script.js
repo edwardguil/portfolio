@@ -117,26 +117,6 @@ function runningText(i) {
 }
 
 /**
- * This function handles the passive arrow animation
- * for the home page. Recursively called.
- */
-function growArrow() {
-    const arrow = document.querySelector("#arrow-down");
-    // Ensure that the arrow exists (may not be on home page)
-    if (arrow != null) {
-        // If the arrow is already growing, shrink it
-        if (arrow.classList.contains("grow")) {
-            arrow.classList.remove("grow");
-        } else {
-            // Else grow it
-            arrow.classList.add("grow");
-        }
-        // Call the function again
-        setTimeout(growArrow, 2000);
-    }
-}
-
-/**
  * This function handles closing a mac-window when the close button is clicked.
  * It is called by the close button's onclick event.
  * @param {event} event The event that triggered the function 
@@ -200,8 +180,70 @@ function swapProject(index) {
 }
 
 /**
- * This function is a placeholder for the contact form. It will be
- * implemented in future. 
+ * This function handles onclick events that trigger scrolling effects 
+ * on the home page. It uses the three section on the home page
+ * to determine the position to scroll to.
+ * @param {int} index The index of the section to scroll to
+ */
+function scrollToSection(index) {
+    const sections = document.querySelectorAll('section');
+    // By default, scroll to the top of the page
+    var targetPosition = 0;
+    if (index != 0 ) {
+        targetPosition = sections[index - 1].offsetTop - 60;
+    } 
+
+    // Scroll to the target position
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+}
+
+/**
+ * This function updates the page index balls to show which
+ * section the user is currently viewing. It is called by the
+ * onscroll event. 
+ */
+function updateActiveSection() {
+    const currentPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const balls = document.querySelectorAll('#page-index .ball');
+    const sections = document.querySelectorAll('section');
+    const header = document.querySelector('header');
+    
+    // If the page index exists, update the balls
+    if (balls != null) {
+        // First check if the header is visible
+        const headerHeight = header.offsetHeight;
+        const headerVisible = currentPosition < headerHeight - windowHeight / 2;
+        balls[0].classList.toggle('active', headerVisible);
+
+        // Check if the sections are visible
+        for (let index = 0; index < sections.length; index++) {
+            const section = sections[index];
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            // First we find the 'bounding box' of the section.
+            // We substract the window height to allow leeway for the 
+            // section to be visible
+            const verticalPositionTop = sectionTop - windowHeight / 2
+            const verticalPositionBottom = sectionTop + sectionHeight - windowHeight / 2
+
+            // Then we check we are within the bounding box
+            const sectionVisible = currentPosition >= verticalPositionTop &&
+                                    currentPosition < verticalPositionBottom;
+
+            // Update the ball corresponding to the section if it is visible
+            balls[index + 1].classList.toggle('active', sectionVisible);
+        }
+    }
+}
+
+/**
+ * This function is a placeholder for the contact form. Not
+ * currently implemented
  * @param {event} event The event that triggered the function
  */
 function sendForm(event) {
@@ -216,12 +258,12 @@ function passiveAnimations() {
     slideBall(true)
     typedText(34, false);
     runningText(7);
-    growArrow();
+    window.addEventListener('scroll', updateActiveSection);
 }
 
 // This is called when the JS file is loaded, checking if
 // the user has dark mode enabled and applying it if so.
-// This is done here to prevent a flash of light mode on page load. 
+// This is done here to prevent a quick flash of light mode on page load. 
 if (localStorage.getItem('dark') == 'true') {
     document.documentElement.classList.add("night");
 }
