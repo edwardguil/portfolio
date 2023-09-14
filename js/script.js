@@ -260,7 +260,7 @@ async function sendForm(event) {
     };
 
     try {
-        const response = await fetch('https://uedrhclixl.execute-api.ap-southeast-2.amazonaws.com/staging/sendmail', {
+        const response = await fetch('https://uedrhclixl.execute-api.ap-southeast-2.amazonaws.com/staging/sendemail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
