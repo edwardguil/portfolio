@@ -271,6 +271,7 @@ async function sendForm(event) {
     } catch (error) {
         console.log(error.message);
     }
+    event.target.reset();
 }
 
 
