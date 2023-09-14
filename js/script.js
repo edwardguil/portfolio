@@ -248,10 +248,10 @@ function updateActiveSection() {
  */
 async function sendForm(event) {
     event.preventDefault();
-
     const fullname = document.getElementById('fullname').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
+    event.target.reset();
 
     const formData = {
         fullname,
@@ -271,7 +271,6 @@ async function sendForm(event) {
     } catch (error) {
         console.log(error.message);
     }
-    event.target.reset();
 }
 
 
