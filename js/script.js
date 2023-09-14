@@ -246,9 +246,33 @@ function updateActiveSection() {
  * currently implemented
  * @param {event} event The event that triggered the function
  */
-function sendForm(event) {
-    const x = 2;
+async function sendForm(event) {
+    event.preventDefault();
+
+    const fullname = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const formData = {
+        fullname,
+        email,
+        message
+    };
+
+    try {
+        const response = await fetch('https://uedrhclixl.execute-api.ap-southeast-2.amazonaws.com/staging/sendmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+    } catch (error) {
+        console.log(error.message);
+    }
 }
+
 
 /**
  * This function just calls the other passive animations
